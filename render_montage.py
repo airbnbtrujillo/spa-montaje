@@ -1,12 +1,16 @@
 #!/usr/bin/env python3
 """
-render_montage.py — Renderiza montage_plan.json a un .mp4 con ffmpeg. Sin DaVinci Resolve.
+render_montage.py — Renderiza un plan (montage_plan.json) a un .mp4 con ffmpeg. Sin Premiere ni Resolve.
 
-    python render_montage.py                 # usa montage_plan.json -> montage.mp4
-    python render_montage.py --size 1080x1920 --fade 0.08
+    python render_montage.py                       # cortes secos
+    python render_montage.py --dissolve 12         # fundido de 12 fotogramas centrado en cada corte
 
-Cada corte se recorta del clip de origen, se escala/rellena al formato de la timeline
-y se une; luego se añade la música (con fundido de salida). Cortes secos por defecto.
+Cada plano se recorta del clip de origen, se escala/rellena al formato de la timeline y se une;
+luego se añade la música (volumen normalizado y fundidos de entrada/salida).
+
+Con --dissolve el fundido queda CENTRADO en el corte (como el XML para Premiere): los dos clips se
+alargan media transición hacia el corte, así la duración total y los cortes sobre los beats no cambian.
+Solo hay fundido donde ambos clips tienen material de sobra; en el resto el corte es seco.
 """
 from __future__ import annotations
 
@@ -43,85 +47,101 @@ def main() -> None:
     ap.add_argument("--fps", type=float, default=0.0, help="forzar fps de salida")
     ap.add_argument("--crf", type=int, default=18, help="calidad H.264 (menor = mejor, 18-23)")
     ap.add_argument("--preset", default="medium")
-    ap.add_argument("--fade", type=float, default=0.0, help="crossfade entre cortes en s (0 = corte seco)")
-    ap.add_argument("--music-gain", type=float, default=0.0, help="ganancia de música en dB")
+    ap.add_argument("--dissolve", type=int, default=0, metavar="F",
+                    help="fotogramas de fundido centrado en cada corte (0 = corte seco)")
+    ap.add_argument("--music-gain", type=float, default=0.0, help="ganancia extra de la música en dB")
     ap.add_argument("--keep-temp", action="store_true")
     args = ap.parse_args()
 
     ffmpeg = tool("ffmpeg")
     if not args.plan.is_file():
-        sys.exit(f"ERROR: no existe {args.plan}. Ejecuta antes plan_montage.py")
-    plan = json.loads(args.plan.read_text(encoding="utf-8"))
+        sys.exit(f"ERROR: no existe {args.plan}.")
+    plan = json.loads(args.plan.read_text(encoding="utf-8-sig"))
 
     tl = plan["timeline"]
-    fps = args.fps or float(tl["fps"])
-    if args.size:
-        W, H = (int(x) for x in args.size.lower().split("x"))
-    else:
-        W, H = int(tl["width"]), int(tl["height"])
+    tfps = float(tl["fps"])                      # fps con los que se calcularon los fotogramas del plan
+    fps = args.fps or tfps
+    W, H = (int(x) for x in args.size.lower().split("x")) if args.size else (int(tl["width"]), int(tl["height"]))
     W -= W % 2
     H -= H % 2
     segs = plan["segments"]
+    n = len(segs)
     music = plan["music"]
-    total_s = plan["total_frames"] / float(tl["fps"])
+    total_s = plan["total_frames"] / tfps
+    frames_of = {c["path"]: c["frames"] for c in plan.get("clips_scanned", [])}
+
+    # ---- fundidos: solo donde ambos clips tienen material de sobra a cada lado del corte ----
+    D = max(0, args.dissolve)
+    mitad_a, mitad_b = D // 2, D - D // 2
+    trans = [False] * max(0, n - 1)
+    if D:
+        for k in range(n - 1):
+            a, b = segs[k], segs[k + 1]
+            trans[k] = (a["in_frame"] + a["duration_frames"] + mitad_a <= frames_of.get(a["clip"], 10 ** 9)
+                        and b["in_frame"] - mitad_b >= 0)
 
     vf = (f"scale={W}:{H}:force_original_aspect_ratio=decrease,"
           f"pad={W}:{H}:(ow-iw)/2:(oh-ih)/2:color=black,setsar=1,fps={fps},format=yuv420p")
+    print(f"{n} cortes -> {W}x{H} @ {fps} fps, {total_s:.1f}s, fundidos: {sum(trans)} de {max(0, n - 1)} cortes")
 
-    print(f"{len(segs)} cortes -> {W}x{H} @ {fps} fps, {total_s:.1f}s")
     tmp = Path(tempfile.mkdtemp(prefix="render_"))
     try:
         parts: list[Path] = []
+        lens: list[int] = []
         for i, s in enumerate(segs):
-            src = Path(s["clip"])
-            in_s = s["in_frame"] / float(tl["fps"])
-            dur = s["duration_frames"] / float(tl["fps"])
+            head = mitad_b if (i > 0 and trans[i - 1]) else 0
+            tail = mitad_a if (i < n - 1 and trans[i]) else 0
+            ini = s["in_frame"] - head
+            nfr = head + s["duration_frames"] + tail
+            in_s = ini / tfps
             dst = tmp / f"seg_{i:04d}.mp4"
-            # seek rápido antes de -i, ajuste fino después = exacto y ágil
-            pre = max(0.0, in_s - 1.5)
-            fine = in_s - pre
-            r = run([ffmpeg, "-y", "-v", "error", "-ss", f"{pre:.3f}", "-i", str(src),
-                     "-ss", f"{fine:.3f}", "-t", f"{dur:.3f}", "-an", "-vf", vf,
+            pre = max(0.0, in_s - 1.5)               # seek rápido antes de -i, ajuste fino después
+            r = run([ffmpeg, "-y", "-v", "error", "-ss", f"{pre:.3f}", "-i", str(s["clip"]),
+                     "-ss", f"{in_s - pre:.3f}", "-frames:v", str(nfr), "-an", "-vf", vf,
                      "-c:v", "libx264", "-preset", args.preset, "-crf", str(args.crf),
                      "-video_track_timescale", "90000", str(dst)])
             if r.returncode != 0 or not dst.is_file():
-                print(f"  ! corte {i} falló: {r.stderr.strip()[-300:]}")
-                continue
+                sys.exit(f"ERROR: el plano {i + 1} falló: {r.stderr.strip()[-300:]}")
             parts.append(dst)
-            print(f"  {i + 1:>3}/{len(segs)}  {src.name[:40]:40s} {dur:4.2f}s")
-
-        if not parts:
-            sys.exit("ERROR: no se renderizó ningún corte.")
+            lens.append(nfr)
+            print(f"  {i + 1:>3}/{n}  {Path(s['clip']).name[:30]:30s} {nfr / tfps:5.2f}s"
+                  + (f"  (+{head}/{tail} f de fundido)" if head or tail else ""))
 
         silent = tmp / "silent.mp4"
-        if args.fade > 0 and len(parts) > 1:
-            # xfade encadenado
+        if any(trans):
             inputs: list[str] = []
             for p in parts:
                 inputs += ["-i", str(p)]
-            fc, prev, offset = [], "0:v", 0.0
-            durs = [s["duration_frames"] / float(tl["fps"]) for s in segs][:len(parts)]
-            for idx in range(1, len(parts)):
-                offset += durs[idx - 1] - args.fade
-                lbl = f"x{idx}"
-                fc.append(f"[{prev}][{idx}:v]xfade=transition=fade:duration={args.fade}:"
-                          f"offset={max(0.0, offset):.3f}[{lbl}]")
+            # xfade y concat exigen la misma base de tiempo: se normaliza cada entrada y cada resultado
+            fc = [f"[{k}:v]settb=AVTB,setpts=PTS-STARTPTS[s{k}]" for k in range(n)]
+            prev, acc = "s0", lens[0]
+            for k in range(1, n):
+                lbl = f"v{k}"
+                if trans[k - 1]:
+                    fc.append(f"[{prev}][s{k}]xfade=transition=fade:duration={D / tfps:.5f}:"
+                              f"offset={(acc - D) / tfps:.5f},settb=AVTB[{lbl}]")
+                    acc += lens[k] - D
+                else:
+                    fc.append(f"[{prev}][s{k}]concat=n=2:v=1:a=0,settb=AVTB,setpts=PTS-STARTPTS[{lbl}]")
+                    acc += lens[k]
                 prev = lbl
             r = run([ffmpeg, "-y", "-v", "error", *inputs, "-filter_complex", ";".join(fc),
                      "-map", f"[{prev}]", "-c:v", "libx264", "-preset", args.preset,
-                     "-crf", str(args.crf), str(silent)])
+                     "-crf", str(args.crf), "-pix_fmt", "yuv420p", str(silent)])
             if r.returncode != 0:
-                print(f"  ! crossfade falló, usando cortes secos: {r.stderr.strip()[-200:]}")
-                args.fade = 0
-        if args.fade <= 0 or not silent.is_file():
+                print("filtergraph:", ";".join(fc)[:600])
+                sys.exit("ERROR al encadenar los fundidos: " + r.stderr.strip()[:900])
+            print(f"  duración tras los fundidos: {acc / tfps:.2f}s (esperada {total_s:.2f}s)")
+        else:
             lst = tmp / "list.txt"
             lst.write_text("".join(f"file '{p.as_posix()}'\n" for p in parts), encoding="utf-8")
             run([ffmpeg, "-y", "-v", "error", "-f", "concat", "-safe", "0", "-i", str(lst),
                  "-c", "copy", str(silent)])
 
-        m_in = music["in_frame"] / float(tl["fps"])
-        af = (f"volume={args.music_gain}dB," if args.music_gain else "") + \
-             f"afade=t=out:st={max(0.0, total_s - 1.0):.2f}:d=1.0"
+        m_in = music["in_frame"] / tfps
+        af = ((f"volume={args.music_gain}dB," if args.music_gain else "") +
+              f"loudnorm=I=-16:TP=-1.5:LRA=11,afade=t=in:st=0:d=0.4,"
+              f"afade=t=out:st={max(0.0, total_s - 1.5):.2f}:d=1.5")
         r = run([ffmpeg, "-y", "-v", "error", "-i", str(silent),
                  "-ss", f"{m_in:.3f}", "-i", music["path"], "-t", f"{total_s:.3f}",
                  "-map", "0:v:0", "-map", "1:a:0", "-af", af,

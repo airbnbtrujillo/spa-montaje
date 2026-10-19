@@ -23,6 +23,7 @@ import json
 import os
 import re
 import shutil
+import stat
 import subprocess
 import sys
 import time
@@ -172,6 +173,15 @@ def fwd(p) -> str:
     return str(p).replace("\\", "/")
 
 
+def _escribir_solo_lectura(path: Path, texto: str) -> None:
+    """Escribe el archivo y lo deja de solo lectura: VS Code guarda lo que haya en el editor antes de
+    depurar, así que una tecla suelta (una vez se coló un '6' en la ruta del XML) rompería el script."""
+    if path.exists():
+        os.chmod(path, stat.S_IWRITE | stat.S_IREAD)
+    path.write_text(texto, encoding="utf-8")
+    os.chmod(path, stat.S_IREAD)
+
+
 def estructura(decisiones: Path) -> list[dict]:
     """Etapas -> planos (carpetas) -> clips, con las decisiones del autor aplicadas."""
     P = load_json(CACHE / "propuesta.json")
@@ -219,7 +229,7 @@ def preparar(out: Path, xml: Path, decisiones: Path) -> dict:
     cfg = {"project": fwd(prproj), "xml": fwd(xml_dst), "marker": fwd(marker), "error": fwd(error),
            "log": fwd(out / f"{PROYECTO}.log.txt"), "carpeta": fwd(out), "sequence": NOMBRE, "actos": estructura(decisiones)}
     jsx = out / "crear_proyecto_organizado.jsx"
-    jsx.write_text(JSX.replace("__CONFIG__", json.dumps(cfg, indent=2, ensure_ascii=True)), encoding="utf-8")
+    _escribir_solo_lectura(jsx, JSX.replace("__CONFIG__", json.dumps(cfg, indent=2, ensure_ascii=True)))
 
     bat = out / "ABRIR_PREMIERE_2022.bat"
     bat.write_text(f"""@echo off
@@ -240,9 +250,9 @@ exit /b 0
         "hostAppSpecifier": "premierepro-22.0", "engineName": "NewWorld",
         "script": "${workspaceFolder}/crear_proyecto_organizado.jsx", "bringToFront": True}]}
     (out / ".vscode").mkdir(exist_ok=True)
-    (out / ".vscode" / "launch.json").write_text(json.dumps(launch, indent=2), encoding="utf-8")
+    _escribir_solo_lectura(out / ".vscode" / "launch.json", json.dumps(launch, indent=2))
     ws = out / "Spot_Spa_organizar.code-workspace"
-    ws.write_text(json.dumps({"folders": [{"path": "."}], "launch": launch}, indent=2), encoding="utf-8")
+    _escribir_solo_lectura(ws, json.dumps({"folders": [{"path": "."}], "launch": launch}, indent=2))
 
     (out / "LEEME.txt").write_text(
         "Crear el proyecto de Premiere del spot, ordenado por etapas y tomas (método de AutoSync)\n\n"

@@ -51,6 +51,13 @@ del orden de rodaje. Revisado a ojo sobre este rodaje: ≥ 0.91 fueron tomas rep
 eran ángulos distintos. **No elige la mejor toma**: por defecto propone la de mejor nota y, a
 igualdad, la última; se cambia en el HTML.
 
+## Borrador con fundidos
+
+`render_montage.py --dissolve 12` (lo que usa `spa_aplicar.py`) hace los fundidos **centrados en el corte**: cada clip se
+alarga media transición hacia el corte, así la duración total y los cortes sobre los beats no cambian. Solo hay
+fundido donde ambos clips tienen material de sobra (igual que en el XML). La música se normaliza (loudnorm)
+y entra/sale con fundido.
+
 ## Premiere
 
 `spa_premiere.py` crea el proyecto de Premiere con el mismo método que AutoSync Multicam: copia la

@@ -71,8 +71,9 @@ def main() -> None:
     if not args.sin_video:
         out = args.salida / "borrador.mp4"
         r = subprocess.run([py, str(TOOLS / "render_montage.py"), "--plan", str(plan_path), "--out", str(out),
-                            "--preset", "veryfast", "--crf", "22"], capture_output=True, text=True)
-        print((r.stdout.strip().splitlines() or [""])[-1] if r.returncode == 0 else r.stderr.strip()[-600:])
+                            "--preset", "veryfast", "--crf", "22", "--dissolve", str(args.dissolve)],
+                           capture_output=True, text=True)
+        print("\n".join(r.stdout.strip().splitlines()[-3:]) if r.returncode == 0 else (r.stdout + r.stderr).strip()[-700:])
 
 
 if __name__ == "__main__":
