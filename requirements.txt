@@ -1,0 +1,6 @@
+numpy
+pillow
+onnxruntime
+librosa
+soundfile
+# también hacen falta ffmpeg/ffprobe en el PATH y Ollama (qwen2.5vl:7b, qwen3:8b).

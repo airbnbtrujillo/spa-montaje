@@ -1,0 +1,21 @@
+{
+  "folders": [
+    {
+      "path": "."
+    }
+  ],
+  "launch": {
+    "version": "0.2.0",
+    "configurations": [
+      {
+        "type": "extendscript-debug",
+        "request": "launch",
+        "name": "Crear proyecto del spot en Premiere",
+        "hostAppSpecifier": "premierepro-22.0",
+        "engineName": "NewWorld",
+        "script": "${workspaceFolder}/crear_proyecto_organizado.jsx",
+        "bringToFront": true
+      }
+    ]
+  }
+}

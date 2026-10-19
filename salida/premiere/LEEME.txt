@@ -1,0 +1,13 @@
+Crear el proyecto de Premiere del spot, ordenado por etapas y tomas (método de AutoSync)
+
+Automático:   python spa_premiere.py
+
+A mano:
+  1. Doble clic en ABRIR_PREMIERE_2022.bat (abre el proyecto del spot, todavia en blanco).
+  2. Abre Spot_Spa_organizar.code-workspace con VS Code y pulsa F5.
+  3. Al terminar aparece 'Spot Spa - organizado.importado.ok.txt' y el proyecto 'Spot Spa - organizado.prproj'
+     tiene la secuencia 'Spot Spa' y el panel Proyecto ordenado: una carpeta por etapa y, dentro,
+     una subcarpeta por cada plano con tomas repetidas.
+
+Sin VS Code: en Premiere, File > Import > spot.xml (sin carpetas).
+El XML apunta a los PROXIES (F:\Video Spa\Proxies): para el final, clic derecho > Link Media.
