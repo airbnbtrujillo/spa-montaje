@@ -101,15 +101,10 @@ def main() -> None:
         src_in = int(s["in_frame"])
         dur = int(s["duration_frames"])
         rec = int(s["record_frame"])
-        # extiende para solapar la transición (si cabe en el material de origen)
-        head = dis // 2 if (k > 0 and dis) else 0
-        tail = (dis - dis // 2) if (k < len(segs) - 1 and dis) else 0
-        if src_in - head < 0:
-            head = 0
-        if src_in + dur + tail > info["frames"]:
-            tail = max(0, info["frames"] - src_in - dur)
-        s_in, s_out = src_in - head, src_in + dur + tail
-        t_start, t_end = rec - head, rec + dur + tail
+        # Los clips van pegados (sin solapes): Premiere no admite clips solapados en una misma pista.
+        # La transición se pone aparte, centrada en el corte, y usa el material sobrante de cada clip.
+        s_in, s_out = src_in, src_in + dur
+        t_start, t_end = rec, rec + dur
         fdef = file_def(fid, p, info["frames"], info["width"], info["height"],
                         music_arate, info["has_audio"]) if fid not in defined else f'<file id="{fid}"/>'
         defined.add(fid)
@@ -119,7 +114,11 @@ def main() -> None:
             f"<start>{t_start}</start><end>{t_end}</end><in>{s_in}</in><out>{s_out}</out>"
             f"{fdef}<compositemode>normal</compositemode></clipitem>"
         )
-        if dis and k < len(segs) - 1:
+        nxt = segs[k + 1] if k < len(segs) - 1 else None
+        # solo hay fundido si ambos clips tienen material de sobra a cada lado del corte
+        mitad_a, mitad_b = dis // 2, dis - dis // 2
+        hay_margen = bool(nxt) and src_in + dur + mitad_a <= info["frames"] and int(nxt["in_frame"]) - mitad_b >= 0
+        if dis and hay_margen:
             c_at = rec + dur
             v_items.append(
                 f'<transitionitem><start>{c_at - dis//2}</start><end>{c_at + (dis - dis//2)}</end>'

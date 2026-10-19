@@ -53,7 +53,9 @@ def plan_from_decisions(dec: list[dict], grupos: dict, beats: dict, fps: float =
         if end_idx >= len(b):
             break
         a_s, z_s = b[idx] - t0, b[end_idx] - t0
-        rec, dur = int(round(a_s * fps)), int(round((z_s - a_s) * fps))
+        # límites redondeados una sola vez: el final de un plano es exactamente el inicio del siguiente
+        rec, fin = int(round(a_s * fps)), int(round(z_s * fps))
+        dur = fin - rec
         dur_s = dur / fps
         inicio = max(0.0, min(float(d["inicio_s"]), max(0.0, clip["duracion_s"] - dur_s - 0.05)))
         segs.append({"index": k, "clip": clip["ruta"], "in_frame": int(round(inicio * fps)),

@@ -4,10 +4,10 @@
     {
       "type": "extendscript-debug",
       "request": "launch",
-      "name": "Importar XML del spot en Premiere",
+      "name": "Crear proyecto del spot en Premiere",
       "hostAppSpecifier": "premierepro-22.0",
       "engineName": "NewWorld",
-      "script": "${workspaceFolder}/importar_xml_en_prproj_abierto.jsx",
+      "script": "${workspaceFolder}/crear_proyecto_organizado.jsx",
       "bringToFront": true
     }
   ]
