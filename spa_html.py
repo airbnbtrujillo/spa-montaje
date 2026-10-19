@@ -33,7 +33,7 @@ TEMPLATE = r"""<!doctype html>
 <style>
 :root{color-scheme:light dark;--bg:#f4f6f9;--fg:#1b2430;--mut:#5b6877;--card:#fff;--line:#d8dee6;--acc:#2563eb;--on:#eaf2ff;--ok:#16a34a;--warn:#b45309}
 @media (prefers-color-scheme:dark){:root{--bg:#0e1218;--fg:#e7ebf0;--mut:#98a4b1;--card:#161b23;--line:#29303b;--acc:#6ea4ff;--on:#142540;--ok:#4ade80;--warn:#fbbf24}}
-*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font:14px/1.5 system-ui,Segoe UI,sans-serif}
+*{box-sizing:border-box}[hidden]{display:none!important}body{margin:0;background:var(--bg);color:var(--fg);font:14px/1.5 system-ui,Segoe UI,sans-serif}
 header{position:sticky;top:0;z-index:5;background:var(--card);border-bottom:1px solid var(--line);padding:12px 20px}
 h1{margin:0;font-size:19px}h2{margin:0;font-size:16px}h3{margin:0;font-size:14px}
 .sub{color:var(--mut);margin:2px 0 8px}
