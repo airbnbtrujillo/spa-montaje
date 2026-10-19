@@ -1,0 +1,22 @@
+{
+  "nota": "Ajustes manuales hechos por Claude tras revisar a ojo los fotogramas de cada clip. Claves = número de clip. 'acto' fuerza la etapa, 'inicio_s' sugiere desde qué segundo cortar, 'prioridad' fija qué planos entran primero en cada etapa. Se pueden cambiar en el HTML.",
+  "acto": {
+    "C2338": "espejo", "C2339": "espejo", "C2340": "espejo", "C2342": "espejo", "C2343": "espejo", "C2344": "espejo",
+    "C2341": "entrada", "C2346": "entrada",
+    "C2345": "descartar",
+    "C2367": "descartar",
+    "C2368": "pasillo", "C2369": "pasillo", "C2370": "pasillo", "C2371": "pasillo",
+    "C2372": "sube_camilla", "C2373": "sube_camilla", "C2374": "sube_camilla"
+  },
+  "inicio_s": {
+    "C2338": 4.6, "C2340": 17.5, "C2346": 0.4,
+    "C2369": 0.3, "C2371": 3.5, "C2370": 4.0,
+    "C2372": 2.5, "C2373": 5.5, "C2374": 3.5
+  },
+  "prioridad": {
+    "entrada": ["C2346"],
+    "espejo": ["C2338", "C2339", "C2340"],
+    "pasillo": ["C2369", "C2371", "C2370", "C2368"],
+    "sube_camilla": ["C2372", "C2374", "C2373"]
+  }
+}

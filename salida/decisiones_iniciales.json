@@ -1,0 +1,174 @@
+{
+  "version": 1,
+  "origen": "propuesta inicial",
+  "orden": [
+    {
+      "plano": "T015",
+      "toma": "C2346.MP4",
+      "inicio_s": 0.4,
+      "beats": 4,
+      "acto": "entrada"
+    },
+    {
+      "plano": "T002",
+      "toma": "C2326.MP4",
+      "inicio_s": 1.0,
+      "beats": 8,
+      "acto": "ambiente"
+    },
+    {
+      "plano": "T007",
+      "toma": "C2332.MP4",
+      "inicio_s": 0.4,
+      "beats": 4,
+      "acto": "ambiente"
+    },
+    {
+      "plano": "T012",
+      "toma": "C2338.MP4",
+      "inicio_s": 4.6,
+      "beats": 4,
+      "acto": "espejo"
+    },
+    {
+      "plano": "T013",
+      "toma": "C2339.MP4",
+      "inicio_s": 12.51,
+      "beats": 4,
+      "acto": "espejo"
+    },
+    {
+      "plano": "T014",
+      "toma": "C2340.MP4",
+      "inicio_s": 17.5,
+      "beats": 4,
+      "acto": "espejo"
+    },
+    {
+      "plano": "T033",
+      "toma": "C2369.MP4",
+      "inicio_s": 0.3,
+      "beats": 4,
+      "acto": "pasillo"
+    },
+    {
+      "plano": "T035",
+      "toma": "C2371.MP4",
+      "inicio_s": 3.5,
+      "beats": 4,
+      "acto": "pasillo"
+    },
+    {
+      "plano": "T036",
+      "toma": "C2372.MP4",
+      "inicio_s": 2.5,
+      "beats": 4,
+      "acto": "sube_camilla"
+    },
+    {
+      "plano": "T037",
+      "toma": "C2373.MP4",
+      "inicio_s": 5.5,
+      "beats": 4,
+      "acto": "sube_camilla"
+    },
+    {
+      "plano": "T038",
+      "toma": "C2374.MP4",
+      "inicio_s": 3.5,
+      "beats": 4,
+      "acto": "sube_camilla"
+    },
+    {
+      "plano": "T022",
+      "toma": "C2354.MP4",
+      "inicio_s": 1.31,
+      "beats": 8,
+      "acto": "piedras"
+    },
+    {
+      "plano": "T025",
+      "toma": "C2359.MP4",
+      "inicio_s": 1.25,
+      "beats": 4,
+      "acto": "piedras"
+    },
+    {
+      "plano": "T045",
+      "toma": "C2389.MP4",
+      "inicio_s": 1.19,
+      "beats": 8,
+      "acto": "vapor"
+    },
+    {
+      "plano": "T061",
+      "toma": "C2414.MP4",
+      "inicio_s": 3.13,
+      "beats": 4,
+      "acto": "vapor"
+    },
+    {
+      "plano": "T044",
+      "toma": "C2388.MP4",
+      "inicio_s": 4.32,
+      "beats": 4,
+      "acto": "mascarilla"
+    },
+    {
+      "plano": "T069",
+      "toma": "C2423.MP4",
+      "inicio_s": 10.01,
+      "beats": 8,
+      "acto": "mascarilla"
+    },
+    {
+      "plano": "T039",
+      "toma": "C2377.MP4",
+      "inicio_s": 1.25,
+      "beats": 4,
+      "acto": "cremas"
+    },
+    {
+      "plano": "T042",
+      "toma": "C2383.MP4",
+      "inicio_s": 8.63,
+      "beats": 4,
+      "acto": "cremas"
+    },
+    {
+      "plano": "T052",
+      "toma": "C2398.MP4",
+      "inicio_s": 4.0,
+      "beats": 4,
+      "acto": "cremas"
+    },
+    {
+      "plano": "T076",
+      "toma": "C2430.MP4",
+      "inicio_s": 6.01,
+      "beats": 8,
+      "acto": "cremas"
+    },
+    {
+      "plano": "T057",
+      "toma": "C2407.MP4",
+      "inicio_s": 13.45,
+      "beats": 4,
+      "acto": "otros"
+    },
+    {
+      "plano": "T059",
+      "toma": "C2409.MP4",
+      "inicio_s": 1.0,
+      "beats": 4,
+      "acto": "otros"
+    },
+    {
+      "plano": "T079",
+      "toma": "C2434.MP4",
+      "inicio_s": 0.83,
+      "beats": 4,
+      "acto": "cierre"
+    }
+  ]
+}

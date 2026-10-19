@@ -1,0 +1,5 @@
+numpy
+pillow
+onnxruntime
+# también hace falta ffmpeg/ffprobe en el PATH.
+# spa_beats.py usa librosa (se ejecuta con un Python que lo tenga instalado).
