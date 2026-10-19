@@ -18,7 +18,7 @@ import sys
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent))
-from spa_lib import ACTOS, ACTO_IDS, CACHE, HERE, carpeta_de, load_json  # noqa: E402
+from spa_lib import ACTOS, ACTO_IDS, BASE, CACHE, HERE, SALIDA, carpeta_de, load_json  # noqa: E402
 
 try:
     sys.stdout.reconfigure(encoding="utf-8", errors="replace")
@@ -61,19 +61,20 @@ def acto_de(a: dict, idx: int, n: int) -> str:
 
 def main() -> None:
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    ap.add_argument("--analisis", type=Path, default=Path(r"C:\Claude\beat-montage\footage_spa\footage_log.json"))
+    ap.add_argument("--analisis", type=Path, default=CACHE / "analisis" / "footage_log.json")
     ap.add_argument("--max-seg", type=float, default=110.0, help="duración máxima del spot (s)")
     args = ap.parse_args()
 
     grupos = load_json(CACHE / "grupos.json")["grupos"]
     attrs_clip = load_json(CACHE / "atributos_clip.json")
     vlm_clip = load_json(CACHE / "actos_clip.json") if (CACHE / "actos_clip.json").is_file() else {}
-    ov = load_json(HERE / "overrides.json") if (HERE / "overrides.json").is_file() else {}
+    ov_file = BASE / "overrides.json" if (BASE / "overrides.json").is_file() else HERE / "overrides.json"
+    ov = load_json(ov_file) if ov_file.is_file() else {}
     ov_acto, ov_inicio, ov_prio = ov.get("acto", {}), ov.get("inicio_s", {}), ov.get("prioridad", {})
     beats = load_json(CACHE / "beats.json")
     bl = beats["beats"]
     spb = (bl[-1] - bl[0]) / (len(bl) - 1)   # espaciado real de los beats (no el BPM nominal)
-    ana = {c["nombre"]: c for c in load_json(args.analisis)["clips"]}
+    ana = {c["nombre"]: c for c in load_json(args.analisis)["clips"]} if args.analisis.is_file() else {}
     n = len(grupos)
 
     planos = {}
@@ -157,8 +158,8 @@ def main() -> None:
         "planos": orden,
     }
     (CACHE / "propuesta.json").write_text(json.dumps(payload, indent=2, ensure_ascii=False), encoding="utf-8")
-    (HERE / "salida").mkdir(exist_ok=True)
-    (HERE / "salida" / "decisiones_iniciales.json").write_text(
+    SALIDA.mkdir(parents=True, exist_ok=True)
+    (SALIDA / "decisiones_iniciales.json").write_text(
         json.dumps({"version": 1, "origen": "propuesta inicial", "orden": decisiones}, indent=2, ensure_ascii=False),
         encoding="utf-8")
 

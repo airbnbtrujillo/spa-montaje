@@ -26,7 +26,8 @@ try:
 except Exception:
     pass
 
-HERE = Path(__file__).parent
+sys.path.insert(0, str(Path(__file__).parent))
+from spa_lib import CACHE  # noqa: E402
 
 # id -> (título, pista para el modelo)
 ACTOS = {
@@ -92,31 +93,32 @@ def ask(model: str, img: bytes, retries: int = 2) -> dict:
 
 def main() -> None:
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    ap.add_argument("--cache", type=Path, default=HERE / "cache")
+    ap.add_argument("--cache", type=Path, default=CACHE)
     ap.add_argument("--modelo", default="qwen2.5vl:7b")
     ap.add_argument("--todos", action="store_true", help="clasificar todos los clips, no solo el de cada grupo")
     args = ap.parse_args()
 
     grupos = json.loads((args.cache / "grupos.json").read_text(encoding="utf-8"))["grupos"]
-    out_path = args.cache / "actos.json"
+    # Se guarda por NOMBRE DE CLIP (no por número de grupo): si cambia la agrupación, los resultados siguen valiendo.
+    out_path = args.cache / "actos_clip.json"
     res = json.loads(out_path.read_text(encoding="utf-8")) if out_path.is_file() else {}
 
     jobs = []
     for g in grupos:
         for c in g["clips"]:
             if args.todos or c["nombre"] == g["defecto"]:
-                jobs.append((g["id"] if not args.todos else c["stem"], c))
-    pend = [(k, c) for k, c in jobs if k not in res]
+                jobs.append((g["id"], c))
+    pend = [(gid, c) for gid, c in jobs if c["nombre"] not in res]
     print(f"{len(jobs)} clips a clasificar ({len(jobs) - len(pend)} ya hechos)", flush=True)
 
-    for n, (key, c) in enumerate(pend, 1):
+    for n, (gid, c) in enumerate(pend, 1):
         r = ask(args.modelo, sheet(args.cache / "frames", c["frames"]))
         acto = str(r.get("acto", "")).strip().lower()
         if acto not in ACTOS:
             acto = "otros"
-        res[key] = {"acto": acto, "motivo": str(r.get("motivo", "")), "clip": c["nombre"]}
+        res[c["nombre"]] = {"acto": acto, "motivo": str(r.get("motivo", ""))}
         out_path.write_text(json.dumps(res, indent=2, ensure_ascii=False), encoding="utf-8")
-        print(f"[{n}/{len(pend)}] {key} {c['stem']} -> {acto:12s} {res[key]['motivo'][:70]}", flush=True)
+        print(f"[{n}/{len(pend)}] {gid} {c['stem']} -> {acto:12s} {res[c['nombre']]['motivo'][:70]}", flush=True)
     print("OK", flush=True)
 
 

@@ -27,7 +27,8 @@ try:
 except Exception:
     pass
 
-HERE = Path(__file__).parent
+sys.path.insert(0, str(Path(__file__).parent))
+from spa_lib import CACHE, TOMAS  # noqa: E402
 
 
 def sim_matrix(E: np.ndarray) -> np.ndarray:
@@ -61,14 +62,14 @@ def cluster(M: np.ndarray, thr: float, span: int) -> list[list[int]]:
 
 def main() -> None:
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    ap.add_argument("--cache", type=Path, default=HERE / "cache")
+    ap.add_argument("--cache", type=Path, default=CACHE)
     ap.add_argument("--umbral", type=float, default=0.91)
     ap.add_argument("--ventana", type=int, default=4, help="separación máxima entre clips de un grupo")
     ap.add_argument("--analisis", type=Path,
-                    default=Path(r"C:\Claude\beat-montage\footage_spa\footage_log.json"),
+                    default=CACHE / "analisis" / "footage_log.json",
                     help="footage_log.json de analyze_footage.py (notas y descripciones)")
     ap.add_argument("--carpetas", action="store_true", help="copiar proxies a tomas/<grupo>/")
-    ap.add_argument("--salida-carpetas", type=Path, default=HERE / "tomas")
+    ap.add_argument("--salida-carpetas", type=Path, default=TOMAS)
     args = ap.parse_args()
 
     meta = json.loads((args.cache / "clips.json").read_text(encoding="utf-8"))

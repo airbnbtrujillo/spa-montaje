@@ -1,5 +1,6 @@
 numpy
 pillow
 onnxruntime
-# también hace falta ffmpeg/ffprobe en el PATH.
-# spa_beats.py usa librosa (se ejecuta con un Python que lo tenga instalado).
+librosa
+soundfile
+# también hacen falta ffmpeg/ffprobe en el PATH y Ollama (qwen2.5vl:7b, qwen3:8b).

@@ -3,7 +3,7 @@ Crear el proyecto de Premiere del spot, ordenado por etapas y tomas (método de 
 Automático:   python spa_premiere.py
 
 A mano:
-  1. Doble clic en ABRIR_PREMIERE_2022.bat (abre un proyecto base).
+  1. Doble clic en ABRIR_PREMIERE_2022.bat (abre el proyecto del spot, todavia en blanco).
   2. Abre Spot_Spa_organizar.code-workspace con VS Code y pulsa F5.
   3. Al terminar aparece 'Spot Spa - organizado.importado.ok.txt' y el proyecto 'Spot Spa - organizado.prproj'
      tiene la secuencia 'Spot Spa' y el panel Proyecto ordenado: una carpeta por etapa y, dentro,

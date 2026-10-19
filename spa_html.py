@@ -20,7 +20,8 @@ import sys
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent))
-from spa_lib import CACHE, HERE, load_json  # noqa: E402
+from spa_lib import BASE, CACHE, load_json  # noqa: E402
+HERE = BASE   # las rutas relativas del HTML (tomas/, cache/frames/, salida/) cuelgan de la carpeta del proyecto
 
 try:
     sys.stdout.reconfigure(encoding="utf-8", errors="replace")

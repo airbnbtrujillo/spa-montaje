@@ -26,7 +26,7 @@ except Exception:
 sys.path.insert(0, str(Path(__file__).parent))
 from spa_actos import ollama_url, sheet  # noqa: E402
 
-HERE = Path(__file__).parent
+from spa_lib import CACHE  # noqa: E402
 
 PROMPT = """La imagen es una tira de 6 fotogramas consecutivos de un clip de un spa.
 Responde SOLO con JSON; cada campo es true o false según lo que se ve en la mayoría de fotogramas:
@@ -68,21 +68,25 @@ def ask(model: str, img: bytes, retries: int = 2) -> dict:
 
 def main() -> None:
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    ap.add_argument("--cache", type=Path, default=HERE / "cache")
+    ap.add_argument("--cache", type=Path, default=CACHE)
     ap.add_argument("--modelo", default="qwen2.5vl:7b")
     args = ap.parse_args()
 
     grupos = json.loads((args.cache / "grupos.json").read_text(encoding="utf-8"))["grupos"]
-    out_path = args.cache / "atributos.json"
+    # Se guarda por NOMBRE DE CLIP (no por número de grupo): si cambia la agrupación, los resultados siguen valiendo.
+    out_path = args.cache / "atributos_clip.json"
     res = json.loads(out_path.read_text(encoding="utf-8")) if out_path.is_file() else {}
-    pend = [(g["id"], next(c for c in g["clips"] if c["nombre"] == g["defecto"]))
-            for g in grupos if g["id"] not in res]
+    pend = []
+    for g in grupos:
+        miembros = [c["nombre"] for c in g["clips"]]
+        if not any(m in res for m in miembros):          # ya hay resultado de algún clip de este plano
+            pend.append((g["id"], next(c for c in g["clips"] if c["nombre"] == g["defecto"])))
     print(f"{len(grupos)} planos ({len(grupos) - len(pend)} ya hechos)", flush=True)
 
     for n, (gid, c) in enumerate(pend, 1):
         r = ask(args.modelo, sheet(args.cache / "frames", c["frames"]))
         attrs = {k: bool(r.get(k, False)) for k in CAMPOS}
-        res[gid] = attrs
+        res[c["nombre"]] = attrs
         out_path.write_text(json.dumps(res, indent=2, ensure_ascii=False), encoding="utf-8")
         on = ",".join(k for k, v in attrs.items() if v)
         print(f"[{n}/{len(pend)}] {gid} {c['stem']}  {on}", flush=True)

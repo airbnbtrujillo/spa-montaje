@@ -23,6 +23,9 @@ from pathlib import Path
 import numpy as np
 from PIL import Image
 
+sys.path.insert(0, str(Path(__file__).parent))
+from spa_lib import CACHE  # noqa: E402
+
 try:
     sys.stdout.reconfigure(encoding="utf-8", errors="replace")
 except Exception:
@@ -84,7 +87,7 @@ def preprocess(path: Path) -> np.ndarray:
 def main() -> None:
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--clips", type=Path, default=Path(r"F:\Video Spa\Proxies"))
-    ap.add_argument("--cache", type=Path, default=Path(__file__).with_name("cache"))
+    ap.add_argument("--cache", type=Path, default=CACHE)
     ap.add_argument("--frames", type=int, default=6, help="fotogramas por clip")
     args = ap.parse_args()
 

@@ -2,10 +2,15 @@
 from __future__ import annotations
 
 import json
+import os
 from pathlib import Path
 
-HERE = Path(__file__).parent
-CACHE = HERE / "cache"
+HERE = Path(__file__).parent                              # carpeta del código
+BASE = Path(os.environ.get("SPA_PROYECTO") or HERE)       # carpeta de trabajo del proyecto (un rodaje)
+CACHE = BASE / "cache"
+SALIDA = BASE / "salida"
+TOMAS = BASE / "tomas"
+DECISIONES = BASE / "decisiones"
 FPS = 29.97  # proxies a 30000/1001
 
 # id, título, presupuesto de duración en segundos, color
@@ -73,3 +78,59 @@ def plan_from_decisions(dec: list[dict], grupos: dict, beats: dict, fps: float =
         "bpm": beats["bpm"], "segment_count": len(segs), "total_frames": total,
         "segments": segs, "clips_scanned": scanned, "warnings": [],
     }
+
+
+def probe_video(path) -> dict:
+    """Ancho, alto, fps, nº de fotogramas, duración y audio de un vídeo (ffprobe)."""
+    import shutil
+    import subprocess
+    ff = shutil.which("ffprobe")
+    if not ff:
+        raise RuntimeError("falta ffprobe en el PATH")
+    r = subprocess.run([ff, "-v", "error", "-print_format", "json", "-show_streams", "-show_format", str(path)],
+                       capture_output=True, text=True)
+    d = json.loads(r.stdout)
+    v = next(s for s in d["streams"] if s["codec_type"] == "video")
+    n, den = v["r_frame_rate"].split("/")
+    fps_exacto = float(n) / float(den)
+    dur = float(v.get("duration") or d["format"]["duration"])
+    frames = int(v["nb_frames"]) if str(v.get("nb_frames", "")).isdigit() else int(round(dur * fps_exacto))
+    return {"width": int(v["width"]), "height": int(v["height"]), "fps": round(fps_exacto, 3),
+            "frames": frames, "duration": dur, "has_audio": any(s["codec_type"] == "audio" for s in d["streams"])}
+
+
+def plan_final(plan: dict, orig_dir) -> dict:
+    """Mismo plan pero apuntando a los ORIGINALES (mismo nombre que cada proxy). Comprueba que cada
+    original tenga los mismos fps y fotogramas suficientes para el corte; la secuencia toma su resolución."""
+    import copy
+    from collections import Counter
+    from pathlib import Path
+    orig_dir = Path(orig_dir)
+    p = copy.deepcopy(plan)
+    fps = float(p["timeline"]["fps"])
+    info: dict[str, dict] = {}
+    for seg in p["segments"]:
+        proxy = Path(seg["clip"])
+        ruta = orig_dir / proxy.name
+        if not ruta.is_file():
+            raise FileNotFoundError(f"no existe el original de {proxy.name}: {ruta}")
+        i = info.get(proxy.name) or info.setdefault(proxy.name, probe_video(ruta))
+        if abs(i["fps"] - fps) > 0.01:
+            raise ValueError(f"{proxy.name}: el original va a {i['fps']} fps y la secuencia a {fps}")
+        if seg["in_frame"] + seg["duration_frames"] > i["frames"]:
+            raise ValueError(f"{proxy.name}: el corte pide hasta el fotograma "
+                             f"{seg['in_frame'] + seg['duration_frames']} y el original solo tiene {i['frames']}")
+        seg["clip_proxy"] = str(proxy)
+        seg["clip"] = str(ruta)
+    p["clips_scanned"] = [{"path": str(orig_dir / n), "fps": i["fps"], "duration": i["duration"],
+                           "frames": i["frames"], "width": i["width"], "height": i["height"],
+                           "has_audio": i["has_audio"]} for n, i in info.items()]
+    w, h = Counter((i["width"], i["height"]) for i in info.values()).most_common(1)[0][0]
+    p["timeline"].update({"width": w, "height": h})
+    return p
+
+
+def ultima_decision():
+    """Las decisiones más recientes del proyecto (la última descargada del HTML) o, si no hay, las iniciales."""
+    candidatos = sorted(DECISIONES.glob("*.json"), key=lambda p: p.stat().st_mtime) if DECISIONES.is_dir() else []
+    return candidatos[-1] if candidatos else SALIDA / "decisiones_iniciales.json"
