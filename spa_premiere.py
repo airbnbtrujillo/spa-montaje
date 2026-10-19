@@ -102,20 +102,15 @@ JSX = r"""/* Crea el proyecto del spot: importa el XML y ordena el panel Proyect
         if (new File(C.marker).exists) { $.writeln("Este paquete ya se importo: " + C.marker); return; }
         var xmlFile = new File(C.xml);
         if (!xmlFile.exists) { throw new Error("No encuentro el XML: " + C.xml); }
-        // conservar lo que hubiera abierto y crear el proyecto nuevo
+        // Se trabaja DENTRO del proyecto base ya abierto (que es el archivo final, copia de la plantilla).
+        // Este script no cierra ni crea proyectos: si lo abierto no es el proyecto del spot, se detiene.
+        paso = "comprobar el proyecto abierto";
         var actual = (app.project && app.project.path) ? norm(app.project.path) : "";
-        if (actual && actual !== norm(C.project) && actual.indexOf(norm(C.carpeta)) !== 0) {
-            throw new Error("Hay otro proyecto abierto en Premiere (" + app.project.path + "). No lo cierro: guardalo y cierralo tu, y vuelve a ejecutar.");
+        if (!actual) { throw new Error("Premiere no tiene ningun proyecto abierto. Abre: " + C.project); }
+        if (actual !== norm(C.project)) {
+            throw new Error("Esta abierto otro proyecto (" + app.project.path + "). No lo toco: abre " + C.project + " o cierra ese tu.");
         }
-        if (actual && actual !== norm(C.project)) {
-            paso = "guardar y cerrar el proyecto base";
-            try { app.project.save(); } catch (e0) {}
-            try { app.project.closeDocument(0, 0); } catch (e1) {}
-            log("proyecto anterior guardado y cerrado");
-        }
-        paso = "crear el proyecto nuevo";
-        if (!app.project || norm(app.project.path) !== norm(C.project)) { app.newProject(new File(C.project).fsName); }
-        log("proyecto nuevo creado: " + new File(C.project).fsName);
+        log("proyecto base abierto: " + app.project.path);
         paso = "importar el XML";
 
         var before = app.project.sequences.numSequences;
@@ -216,15 +211,18 @@ def preparar(out: Path, xml: Path, decisiones: Path) -> dict:
         sys.exit(f"ERROR: no encuentro la plantilla de Premiere 2022: {TEMPLATE}")
     if not xml.is_file():
         sys.exit(f"ERROR: no existe {xml}. Ejecuta antes spa_aplicar.py")
-    base = out / f"{NOMBRE} - base.prproj"
     prproj = out / f"{PROYECTO}.prproj"
     marker = out / f"{PROYECTO}.importado.ok.txt"
     error = out / f"{PROYECTO}.importado.error.txt"
     xml_dst = out / "spot.xml"
-    shutil.copy2(TEMPLATE, base)             # la plantilla de AutoSync solo se lee
     shutil.copy2(xml, xml_dst)
-    for f in (marker, error, prproj, out / f"{PROYECTO}.log.txt"):
+    for f in (marker, error, out / f"{PROYECTO}.log.txt", out / f"{NOMBRE} - base.prproj"):
         f.unlink(missing_ok=True)
+    try:
+        prproj.unlink(missing_ok=True)
+        shutil.copy2(TEMPLATE, prproj)       # el proyecto base ES el archivo final; la plantilla de AutoSync solo se lee
+    except OSError as e:
+        sys.exit(f"ERROR: no puedo preparar {prproj.name} (¿está abierto en Premiere? ciérralo): {e}")
 
     cfg = {"project": fwd(prproj), "xml": fwd(xml_dst), "marker": fwd(marker), "error": fwd(error),
            "log": fwd(out / f"{PROYECTO}.log.txt"), "carpeta": fwd(out), "sequence": NOMBRE, "actos": estructura(decisiones)}
@@ -235,9 +233,9 @@ def preparar(out: Path, xml: Path, decisiones: Path) -> dict:
     bat.write_text(f"""@echo off
 setlocal
 set "PREMIERE={PREMIERE_2022}"
-set "PRPROJ={base}"
+set "PRPROJ={prproj}"
 if not exist "%PRPROJ%" (
-  echo No encuentro el proyecto base: "%PRPROJ%"
+  echo No encuentro el proyecto del spot: "%PRPROJ%"
   pause
   exit /b 1
 )
@@ -258,7 +256,7 @@ exit /b 0
         "Crear el proyecto de Premiere del spot, ordenado por etapas y tomas (método de AutoSync)\n\n"
         "Automático:   python spa_premiere.py\n\n"
         "A mano:\n"
-        "  1. Doble clic en ABRIR_PREMIERE_2022.bat (abre un proyecto base).\n"
+        "  1. Doble clic en ABRIR_PREMIERE_2022.bat (abre el proyecto del spot, todavia en blanco).\n"
         "  2. Abre Spot_Spa_organizar.code-workspace con VS Code y pulsa F5.\n"
         "  3. Al terminar aparece 'Spot Spa - organizado.importado.ok.txt' y el proyecto 'Spot Spa - organizado.prproj'\n"
         "     tiene la secuencia 'Spot Spa' y el panel Proyecto ordenado: una carpeta por etapa y, dentro,\n"
@@ -295,19 +293,19 @@ def automatico(d: dict) -> bool:
     titulo = subprocess.run(["powershell", "-NoProfile", "-Command",
                              "(Get-Process 'Adobe Premiere Pro' -ErrorAction SilentlyContinue | "
                              "Select-Object -First 1).MainWindowTitle"], capture_output=True, text=True).stdout.strip()
-    if ".prproj" in titulo and str(d["prproj"].parent).lower() not in titulo.lower():
+    if ".prproj" in titulo and d["prproj"].name.lower() not in titulo.lower():
         print("Premiere tiene abierto OTRO proyecto, que no toco:\n  " + titulo +
               "\nGuárdalo y ciérralo (o cierra Premiere) y vuelve a ejecutar, o sigue LEEME.txt a mano.")
         return False
-    if not ventana_lista("Adobe Premiere Pro", NOMBRE):
-        print("Abriendo Premiere 2022 (puede tardar varios minutos)...", flush=True)
+    if not ventana_lista("Adobe Premiere Pro", PROYECTO):
+        print("Abriendo Premiere 2022 con el proyecto del spot (puede tardar varios minutos)...", flush=True)
         os.startfile(str(d["bat"]))
-        if not esperar(lambda: ventana_lista("Adobe Premiere Pro", NOMBRE), 420):
+        if not esperar(lambda: ventana_lista("Adobe Premiere Pro", PROYECTO), 420):
             print("Premiere no terminó de abrir el proyecto en 7 minutos.")
             return False
         time.sleep(8)  # el título aparece un poco antes de que responda el host de scripting
     else:
-        print("Premiere ya está abierto: se reutiliza (el proyecto actual se guarda antes de cerrarlo).", flush=True)
+        print("Premiere ya tiene abierto el proyecto del spot.", flush=True)
     print("Abriendo VS Code...", flush=True)
     subprocess.Popen([code, "-r", str(d["ws"]), str(d["jsx"])], shell=False)
     if not esperar(lambda: ventana_lista("Code", ws_stem), 90, 2.0):

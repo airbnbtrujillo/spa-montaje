@@ -62,7 +62,7 @@ y entra/sale con fundido.
 
 `spa_premiere.py` crea el proyecto de Premiere con el mismo método que AutoSync Multicam: copia la
 plantilla `.prproj` en blanco de Premiere 2022 y un JSX, ejecutado con el ExtendScript Debugger de
-VS Code, crea el proyecto, importa `salida/spot.xml` (la secuencia) y **ordena el panel Proyecto**:
+VS Code, trabaja DENTRO del proyecto base ya abierto (que es el archivo final: no usa `newProject` ni cierra nada), importa `salida/spot.xml` (la secuencia) y **ordena el panel Proyecto**:
 una carpeta por etapa de la historia y, dentro, una subcarpeta por cada plano con tomas repetidas
 (los clips usados se mueven; los demás se importan). Deja un marcador `.importado.ok.txt`.
 `--preparar` solo genera los archivos (`ABRIR_PREMIERE_2022.bat`, el JSX y el workspace de VS Code)
