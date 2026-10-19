@@ -89,7 +89,7 @@ def publicar(decisiones: Path | None = None, si: bool = False, log=print) -> dic
         git("switch", "-c", rama) if git("branch", "--list", rama) == "" else git("switch", rama)
     candidatos = ["docs", "decisiones", "overrides.json", "README.md", "requirements.txt", ".gitignore",
                   "CREAR_PROYECTO_PREMIERE.bat", "SPOT_SPA.bat", "salida/premiere/LEEME.txt",
-                  "salida/premiere/ABRIR_PREMIERE_2022.bat"]
+                  "salida/premiere/ABRIR_PREMIERE_2022.bat", "salida/premiere/crear_proyecto_organizado.jsx"]
     candidatos += [p.name for p in HERE.glob("*.py")]
     candidatos = [c for c in candidatos if (BASE / c).exists()]
     git("add", *candidatos)

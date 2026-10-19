@@ -1,11 +1,11 @@
 /* Crea el proyecto del spot: importa el XML y ordena el panel Proyecto por etapas y tomas. */
 (function () {
     var C = {
-  "project": "C:/Claude/spa-montaje/salida/premiere/Spot Spa - organizado.prproj",
+  "project": "C:/Claude/spa-montaje/salida/premiere/Spot Spa - FINAL.prproj",
   "xml": "C:/Claude/spa-montaje/salida/premiere/spot.xml",
-  "marker": "C:/Claude/spa-montaje/salida/premiere/Spot Spa - organizado.importado.ok.txt",
-  "error": "C:/Claude/spa-montaje/salida/premiere/Spot Spa - organizado.importado.error.txt",
-  "log": "C:/Claude/spa-montaje/salida/premiere/Spot Spa - organizado.log.txt",
+  "marker": "C:/Claude/spa-montaje/salida/premiere/Spot Spa - FINAL.importado.ok.txt",
+  "error": "C:/Claude/spa-montaje/salida/premiere/Spot Spa - FINAL.importado.error.txt",
+  "log": "C:/Claude/spa-montaje/salida/premiere/Spot Spa - FINAL.log.txt",
   "carpeta": "C:/Claude/spa-montaje/salida/premiere",
   "sequence": "Spot Spa",
   "actos": [
@@ -17,11 +17,13 @@
           "clips": [
             {
               "nombre": "C2346.MP4",
-              "ruta": "F:/Video Spa/Proxies/C2346.MP4"
+              "ruta": "F:/Video Spa/C2346.MP4",
+              "proxy": "F:/Video Spa/Proxies/C2346.MP4"
             },
             {
               "nombre": "C2341.MP4",
-              "ruta": "F:/Video Spa/Proxies/C2341.MP4"
+              "ruta": "F:/Video Spa/C2341.MP4",
+              "proxy": "F:/Video Spa/Proxies/C2341.MP4"
             }
           ]
         }
@@ -35,7 +37,8 @@
           "clips": [
             {
               "nombre": "C2332.MP4",
-              "ruta": "F:/Video Spa/Proxies/C2332.MP4"
+              "ruta": "F:/Video Spa/C2332.MP4",
+              "proxy": "F:/Video Spa/Proxies/C2332.MP4"
             }
           ]
         },
@@ -44,11 +47,13 @@
           "clips": [
             {
               "nombre": "C2325.MP4",
-              "ruta": "F:/Video Spa/Proxies/C2325.MP4"
+              "ruta": "F:/Video Spa/C2325.MP4",
+              "proxy": "F:/Video Spa/Proxies/C2325.MP4"
             },
             {
               "nombre": "C2324.MP4",
-              "ruta": "F:/Video Spa/Proxies/C2324.MP4"
+              "ruta": "F:/Video Spa/C2324.MP4",
+              "proxy": "F:/Video Spa/Proxies/C2324.MP4"
             }
           ]
         },
@@ -57,7 +62,8 @@
           "clips": [
             {
               "nombre": "C2326.MP4",
-              "ruta": "F:/Video Spa/Proxies/C2326.MP4"
+              "ruta": "F:/Video Spa/C2326.MP4",
+              "proxy": "F:/Video Spa/Proxies/C2326.MP4"
             }
           ]
         },
@@ -66,7 +72,8 @@
           "clips": [
             {
               "nombre": "C2327.MP4",
-              "ruta": "F:/Video Spa/Proxies/C2327.MP4"
+              "ruta": "F:/Video Spa/C2327.MP4",
+              "proxy": "F:/Video Spa/Proxies/C2327.MP4"
             }
           ]
         },
@@ -75,11 +82,13 @@
           "clips": [
             {
               "nombre": "C2328.MP4",
-              "ruta": "F:/Video Spa/Proxies/C2328.MP4"
+              "ruta": "F:/Video Spa/C2328.MP4",
+              "proxy": "F:/Video Spa/Proxies/C2328.MP4"
             },
             {
               "nombre": "C2329.MP4",
-              "ruta": "F:/Video Spa/Proxies/C2329.MP4"
+              "ruta": "F:/Video Spa/C2329.MP4",
+              "proxy": "F:/Video Spa/Proxies/C2329.MP4"
             }
           ]
         },
@@ -88,7 +97,8 @@
           "clips": [
             {
               "nombre": "C2331.MP4",
-              "ruta": "F:/Video Spa/Proxies/C2331.MP4"
+              "ruta": "F:/Video Spa/C2331.MP4",
+              "proxy": "F:/Video Spa/Proxies/C2331.MP4"
             }
           ]
         },
@@ -97,7 +107,8 @@
           "clips": [
             {
               "nombre": "C2333.MP4",
-              "ruta": "F:/Video Spa/Proxies/C2333.MP4"
+              "ruta": "F:/Video Spa/C2333.MP4",
+              "proxy": "F:/Video Spa/Proxies/C2333.MP4"
             }
           ]
         },
@@ -106,7 +117,8 @@
           "clips": [
             {
               "nombre": "C2334.MP4",
-              "ruta": "F:/Video Spa/Proxies/C2334.MP4"
+              "ruta": "F:/Video Spa/C2334.MP4",
+              "proxy": "F:/Video Spa/Proxies/C2334.MP4"
             }
           ]
         },
@@ -115,7 +127,8 @@
           "clips": [
             {
               "nombre": "C2335.MP4",
-              "ruta": "F:/Video Spa/Proxies/C2335.MP4"
+              "ruta": "F:/Video Spa/C2335.MP4",
+              "proxy": "F:/Video Spa/Proxies/C2335.MP4"
             }
           ]
         },
@@ -124,11 +137,13 @@
           "clips": [
             {
               "nombre": "C2337.MP4",
-              "ruta": "F:/Video Spa/Proxies/C2337.MP4"
+              "ruta": "F:/Video Spa/C2337.MP4",
+              "proxy": "F:/Video Spa/Proxies/C2337.MP4"
             },
             {
               "nombre": "C2336.MP4",
-              "ruta": "F:/Video Spa/Proxies/C2336.MP4"
+              "ruta": "F:/Video Spa/C2336.MP4",
+              "proxy": "F:/Video Spa/Proxies/C2336.MP4"
             }
           ]
         },
@@ -137,7 +152,8 @@
           "clips": [
             {
               "nombre": "C2384.MP4",
-              "ruta": "F:/Video Spa/Proxies/C2384.MP4"
+              "ruta": "F:/Video Spa/C2384.MP4",
+              "proxy": "F:/Video Spa/Proxies/C2384.MP4"
             }
           ]
         }
@@ -151,15 +167,18 @@
           "clips": [
             {
               "nombre": "C2339.MP4",
-              "ruta": "F:/Video Spa/Proxies/C2339.MP4"
+              "ruta": "F:/Video Spa/C2339.MP4",
+              "proxy": "F:/Video Spa/Proxies/C2339.MP4"
             },
             {
               "nombre": "C2343.MP4",
-              "ruta": "F:/Video Spa/Proxies/C2343.MP4"
+              "ruta": "F:/Video Spa/C2343.MP4",
+              "proxy": "F:/Video Spa/Proxies/C2343.MP4"
             },
             {
               "nombre": "C2344.MP4",
-              "ruta": "F:/Video Spa/Proxies/C2344.MP4"
+              "ruta": "F:/Video Spa/C2344.MP4",
+              "proxy": "F:/Video Spa/Proxies/C2344.MP4"
             }
           ]
         },
@@ -168,7 +187,8 @@
           "clips": [
             {
               "nombre": "C2342.MP4",
-              "ruta": "F:/Video Spa/Proxies/C2342.MP4"
+              "ruta": "F:/Video Spa/C2342.MP4",
+              "proxy": "F:/Video Spa/Proxies/C2342.MP4"
             }
           ]
         },
@@ -177,7 +197,8 @@
           "clips": [
             {
               "nombre": "C2338.MP4",
-              "ruta": "F:/Video Spa/Proxies/C2338.MP4"
+              "ruta": "F:/Video Spa/C2338.MP4",
+              "proxy": "F:/Video Spa/Proxies/C2338.MP4"
             }
           ]
         },
@@ -186,7 +207,8 @@
           "clips": [
             {
               "nombre": "C2340.MP4",
-              "ruta": "F:/Video Spa/Proxies/C2340.MP4"
+              "ruta": "F:/Video Spa/C2340.MP4",
+              "proxy": "F:/Video Spa/Proxies/C2340.MP4"
             }
           ]
         }
@@ -200,7 +222,8 @@
           "clips": [
             {
               "nombre": "C2371.MP4",
-              "ruta": "F:/Video Spa/Proxies/C2371.MP4"
+              "ruta": "F:/Video Spa/C2371.MP4",
+              "proxy": "F:/Video Spa/Proxies/C2371.MP4"
             }
           ]
         },
@@ -209,7 +232,8 @@
           "clips": [
             {
               "nombre": "C2368.MP4",
-              "ruta": "F:/Video Spa/Proxies/C2368.MP4"
+              "ruta": "F:/Video Spa/C2368.MP4",
+              "proxy": "F:/Video Spa/Proxies/C2368.MP4"
             }
           ]
         },
@@ -218,7 +242,8 @@
           "clips": [
             {
               "nombre": "C2369.MP4",
-              "ruta": "F:/Video Spa/Proxies/C2369.MP4"
+              "ruta": "F:/Video Spa/C2369.MP4",
+              "proxy": "F:/Video Spa/Proxies/C2369.MP4"
             }
           ]
         },
@@ -227,7 +252,8 @@
           "clips": [
             {
               "nombre": "C2370.MP4",
-              "ruta": "F:/Video Spa/Proxies/C2370.MP4"
+              "ruta": "F:/Video Spa/C2370.MP4",
+              "proxy": "F:/Video Spa/Proxies/C2370.MP4"
             }
           ]
         }
@@ -241,7 +267,8 @@
           "clips": [
             {
               "nombre": "C2374.MP4",
-              "ruta": "F:/Video Spa/Proxies/C2374.MP4"
+              "ruta": "F:/Video Spa/C2374.MP4",
+              "proxy": "F:/Video Spa/Proxies/C2374.MP4"
             }
           ]
         },
@@ -250,7 +277,8 @@
           "clips": [
             {
               "nombre": "C2372.MP4",
-              "ruta": "F:/Video Spa/Proxies/C2372.MP4"
+              "ruta": "F:/Video Spa/C2372.MP4",
+              "proxy": "F:/Video Spa/Proxies/C2372.MP4"
             }
           ]
         },
@@ -259,7 +287,8 @@
           "clips": [
             {
               "nombre": "C2373.MP4",
-              "ruta": "F:/Video Spa/Proxies/C2373.MP4"
+              "ruta": "F:/Video Spa/C2373.MP4",
+              "proxy": "F:/Video Spa/Proxies/C2373.MP4"
             }
           ]
         },
@@ -268,11 +297,13 @@
           "clips": [
             {
               "nombre": "C2380.MP4",
-              "ruta": "F:/Video Spa/Proxies/C2380.MP4"
+              "ruta": "F:/Video Spa/C2380.MP4",
+              "proxy": "F:/Video Spa/Proxies/C2380.MP4"
             },
             {
               "nombre": "C2379.MP4",
-              "ruta": "F:/Video Spa/Proxies/C2379.MP4"
+              "ruta": "F:/Video Spa/C2379.MP4",
+              "proxy": "F:/Video Spa/Proxies/C2379.MP4"
             }
           ]
         },
@@ -281,11 +312,13 @@
           "clips": [
             {
               "nombre": "C2382.MP4",
-              "ruta": "F:/Video Spa/Proxies/C2382.MP4"
+              "ruta": "F:/Video Spa/C2382.MP4",
+              "proxy": "F:/Video Spa/Proxies/C2382.MP4"
             },
             {
               "nombre": "C2381.MP4",
-              "ruta": "F:/Video Spa/Proxies/C2381.MP4"
+              "ruta": "F:/Video Spa/C2381.MP4",
+              "proxy": "F:/Video Spa/Proxies/C2381.MP4"
             }
           ]
         },
@@ -294,11 +327,13 @@
           "clips": [
             {
               "nombre": "C2393.MP4",
-              "ruta": "F:/Video Spa/Proxies/C2393.MP4"
+              "ruta": "F:/Video Spa/C2393.MP4",
+              "proxy": "F:/Video Spa/Proxies/C2393.MP4"
             },
             {
               "nombre": "C2394.MP4",
-              "ruta": "F:/Video Spa/Proxies/C2394.MP4"
+              "ruta": "F:/Video Spa/C2394.MP4",
+              "proxy": "F:/Video Spa/Proxies/C2394.MP4"
             }
           ]
         },
@@ -307,7 +342,8 @@
           "clips": [
             {
               "nombre": "C2395.MP4",
-              "ruta": "F:/Video Spa/Proxies/C2395.MP4"
+              "ruta": "F:/Video Spa/C2395.MP4",
+              "proxy": "F:/Video Spa/Proxies/C2395.MP4"
             }
           ]
         },
@@ -316,7 +352,8 @@
           "clips": [
             {
               "nombre": "C2397.MP4",
-              "ruta": "F:/Video Spa/Proxies/C2397.MP4"
+              "ruta": "F:/Video Spa/C2397.MP4",
+              "proxy": "F:/Video Spa/Proxies/C2397.MP4"
             }
           ]
         },
@@ -325,19 +362,23 @@
           "clips": [
             {
               "nombre": "C2413.MP4",
-              "ruta": "F:/Video Spa/Proxies/C2413.MP4"
+              "ruta": "F:/Video Spa/C2413.MP4",
+              "proxy": "F:/Video Spa/Proxies/C2413.MP4"
             },
             {
               "nombre": "C2410.MP4",
-              "ruta": "F:/Video Spa/Proxies/C2410.MP4"
+              "ruta": "F:/Video Spa/C2410.MP4",
+              "proxy": "F:/Video Spa/Proxies/C2410.MP4"
             },
             {
               "nombre": "C2411.MP4",
-              "ruta": "F:/Video Spa/Proxies/C2411.MP4"
+              "ruta": "F:/Video Spa/C2411.MP4",
+              "proxy": "F:/Video Spa/Proxies/C2411.MP4"
             },
             {
               "nombre": "C2412.MP4",
-              "ruta": "F:/Video Spa/Proxies/C2412.MP4"
+              "ruta": "F:/Video Spa/C2412.MP4",
+              "proxy": "F:/Video Spa/Proxies/C2412.MP4"
             }
           ]
         }
@@ -351,7 +392,8 @@
           "clips": [
             {
               "nombre": "C2361.MP4",
-              "ruta": "F:/Video Spa/Proxies/C2361.MP4"
+              "ruta": "F:/Video Spa/C2361.MP4",
+              "proxy": "F:/Video Spa/Proxies/C2361.MP4"
             }
           ]
         },
@@ -360,7 +402,8 @@
           "clips": [
             {
               "nombre": "C2383.MP4",
-              "ruta": "F:/Video Spa/Proxies/C2383.MP4"
+              "ruta": "F:/Video Spa/C2383.MP4",
+              "proxy": "F:/Video Spa/Proxies/C2383.MP4"
             }
           ]
         },
@@ -369,7 +412,8 @@
           "clips": [
             {
               "nombre": "C2330.MP4",
-              "ruta": "F:/Video Spa/Proxies/C2330.MP4"
+              "ruta": "F:/Video Spa/C2330.MP4",
+              "proxy": "F:/Video Spa/Proxies/C2330.MP4"
             }
           ]
         },
@@ -378,7 +422,8 @@
           "clips": [
             {
               "nombre": "C2347.MP4",
-              "ruta": "F:/Video Spa/Proxies/C2347.MP4"
+              "ruta": "F:/Video Spa/C2347.MP4",
+              "proxy": "F:/Video Spa/Proxies/C2347.MP4"
             }
           ]
         },
@@ -387,19 +432,23 @@
           "clips": [
             {
               "nombre": "C2350.MP4",
-              "ruta": "F:/Video Spa/Proxies/C2350.MP4"
+              "ruta": "F:/Video Spa/C2350.MP4",
+              "proxy": "F:/Video Spa/Proxies/C2350.MP4"
             },
             {
               "nombre": "C2348.MP4",
-              "ruta": "F:/Video Spa/Proxies/C2348.MP4"
+              "ruta": "F:/Video Spa/C2348.MP4",
+              "proxy": "F:/Video Spa/Proxies/C2348.MP4"
             },
             {
               "nombre": "C2349.MP4",
-              "ruta": "F:/Video Spa/Proxies/C2349.MP4"
+              "ruta": "F:/Video Spa/C2349.MP4",
+              "proxy": "F:/Video Spa/Proxies/C2349.MP4"
             },
             {
               "nombre": "C2351.MP4",
-              "ruta": "F:/Video Spa/Proxies/C2351.MP4"
+              "ruta": "F:/Video Spa/C2351.MP4",
+              "proxy": "F:/Video Spa/Proxies/C2351.MP4"
             }
           ]
         },
@@ -408,7 +457,8 @@
           "clips": [
             {
               "nombre": "C2352.MP4",
-              "ruta": "F:/Video Spa/Proxies/C2352.MP4"
+              "ruta": "F:/Video Spa/C2352.MP4",
+              "proxy": "F:/Video Spa/Proxies/C2352.MP4"
             }
           ]
         },
@@ -417,7 +467,8 @@
           "clips": [
             {
               "nombre": "C2353.MP4",
-              "ruta": "F:/Video Spa/Proxies/C2353.MP4"
+              "ruta": "F:/Video Spa/C2353.MP4",
+              "proxy": "F:/Video Spa/Proxies/C2353.MP4"
             }
           ]
         },
@@ -426,7 +477,8 @@
           "clips": [
             {
               "nombre": "C2354.MP4",
-              "ruta": "F:/Video Spa/Proxies/C2354.MP4"
+              "ruta": "F:/Video Spa/C2354.MP4",
+              "proxy": "F:/Video Spa/Proxies/C2354.MP4"
             }
           ]
         },
@@ -435,7 +487,8 @@
           "clips": [
             {
               "nombre": "C2355.MP4",
-              "ruta": "F:/Video Spa/Proxies/C2355.MP4"
+              "ruta": "F:/Video Spa/C2355.MP4",
+              "proxy": "F:/Video Spa/Proxies/C2355.MP4"
             }
           ]
         },
@@ -444,11 +497,13 @@
           "clips": [
             {
               "nombre": "C2356.MP4",
-              "ruta": "F:/Video Spa/Proxies/C2356.MP4"
+              "ruta": "F:/Video Spa/C2356.MP4",
+              "proxy": "F:/Video Spa/Proxies/C2356.MP4"
             },
             {
               "nombre": "C2357.MP4",
-              "ruta": "F:/Video Spa/Proxies/C2357.MP4"
+              "ruta": "F:/Video Spa/C2357.MP4",
+              "proxy": "F:/Video Spa/Proxies/C2357.MP4"
             }
           ]
         },
@@ -457,11 +512,13 @@
           "clips": [
             {
               "nombre": "C2359.MP4",
-              "ruta": "F:/Video Spa/Proxies/C2359.MP4"
+              "ruta": "F:/Video Spa/C2359.MP4",
+              "proxy": "F:/Video Spa/Proxies/C2359.MP4"
             },
             {
               "nombre": "C2358.MP4",
-              "ruta": "F:/Video Spa/Proxies/C2358.MP4"
+              "ruta": "F:/Video Spa/C2358.MP4",
+              "proxy": "F:/Video Spa/Proxies/C2358.MP4"
             }
           ]
         },
@@ -470,7 +527,8 @@
           "clips": [
             {
               "nombre": "C2362.MP4",
-              "ruta": "F:/Video Spa/Proxies/C2362.MP4"
+              "ruta": "F:/Video Spa/C2362.MP4",
+              "proxy": "F:/Video Spa/Proxies/C2362.MP4"
             }
           ]
         },
@@ -479,7 +537,8 @@
           "clips": [
             {
               "nombre": "C2363.MP4",
-              "ruta": "F:/Video Spa/Proxies/C2363.MP4"
+              "ruta": "F:/Video Spa/C2363.MP4",
+              "proxy": "F:/Video Spa/Proxies/C2363.MP4"
             }
           ]
         },
@@ -488,7 +547,8 @@
           "clips": [
             {
               "nombre": "C2364.MP4",
-              "ruta": "F:/Video Spa/Proxies/C2364.MP4"
+              "ruta": "F:/Video Spa/C2364.MP4",
+              "proxy": "F:/Video Spa/Proxies/C2364.MP4"
             }
           ]
         },
@@ -497,11 +557,13 @@
           "clips": [
             {
               "nombre": "C2366.MP4",
-              "ruta": "F:/Video Spa/Proxies/C2366.MP4"
+              "ruta": "F:/Video Spa/C2366.MP4",
+              "proxy": "F:/Video Spa/Proxies/C2366.MP4"
             },
             {
               "nombre": "C2365.MP4",
-              "ruta": "F:/Video Spa/Proxies/C2365.MP4"
+              "ruta": "F:/Video Spa/C2365.MP4",
+              "proxy": "F:/Video Spa/Proxies/C2365.MP4"
             }
           ]
         }
@@ -515,11 +577,13 @@
           "clips": [
             {
               "nombre": "C2392.MP4",
-              "ruta": "F:/Video Spa/Proxies/C2392.MP4"
+              "ruta": "F:/Video Spa/C2392.MP4",
+              "proxy": "F:/Video Spa/Proxies/C2392.MP4"
             },
             {
               "nombre": "C2390.MP4",
-              "ruta": "F:/Video Spa/Proxies/C2390.MP4"
+              "ruta": "F:/Video Spa/C2390.MP4",
+              "proxy": "F:/Video Spa/Proxies/C2390.MP4"
             }
           ]
         },
@@ -528,7 +592,8 @@
           "clips": [
             {
               "nombre": "C2414.MP4",
-              "ruta": "F:/Video Spa/Proxies/C2414.MP4"
+              "ruta": "F:/Video Spa/C2414.MP4",
+              "proxy": "F:/Video Spa/Proxies/C2414.MP4"
             }
           ]
         },
@@ -537,7 +602,8 @@
           "clips": [
             {
               "nombre": "C2421.MP4",
-              "ruta": "F:/Video Spa/Proxies/C2421.MP4"
+              "ruta": "F:/Video Spa/C2421.MP4",
+              "proxy": "F:/Video Spa/Proxies/C2421.MP4"
             }
           ]
         },
@@ -546,7 +612,8 @@
           "clips": [
             {
               "nombre": "C2422.MP4",
-              "ruta": "F:/Video Spa/Proxies/C2422.MP4"
+              "ruta": "F:/Video Spa/C2422.MP4",
+              "proxy": "F:/Video Spa/Proxies/C2422.MP4"
             }
           ]
         },
@@ -555,7 +622,8 @@
           "clips": [
             {
               "nombre": "C2389.MP4",
-              "ruta": "F:/Video Spa/Proxies/C2389.MP4"
+              "ruta": "F:/Video Spa/C2389.MP4",
+              "proxy": "F:/Video Spa/Proxies/C2389.MP4"
             }
           ]
         }
@@ -569,19 +637,23 @@
           "clips": [
             {
               "nombre": "C2385.MP4",
-              "ruta": "F:/Video Spa/Proxies/C2385.MP4"
+              "ruta": "F:/Video Spa/C2385.MP4",
+              "proxy": "F:/Video Spa/Proxies/C2385.MP4"
             },
             {
               "nombre": "C2386.MP4",
-              "ruta": "F:/Video Spa/Proxies/C2386.MP4"
+              "ruta": "F:/Video Spa/C2386.MP4",
+              "proxy": "F:/Video Spa/Proxies/C2386.MP4"
             },
             {
               "nombre": "C2387.MP4",
-              "ruta": "F:/Video Spa/Proxies/C2387.MP4"
+              "ruta": "F:/Video Spa/C2387.MP4",
+              "proxy": "F:/Video Spa/Proxies/C2387.MP4"
             },
             {
               "nombre": "C2388.MP4",
-              "ruta": "F:/Video Spa/Proxies/C2388.MP4"
+              "ruta": "F:/Video Spa/C2388.MP4",
+              "proxy": "F:/Video Spa/Proxies/C2388.MP4"
             }
           ]
         },
@@ -590,7 +662,8 @@
           "clips": [
             {
               "nombre": "C2416.MP4",
-              "ruta": "F:/Video Spa/Proxies/C2416.MP4"
+              "ruta": "F:/Video Spa/C2416.MP4",
+              "proxy": "F:/Video Spa/Proxies/C2416.MP4"
             }
           ]
         },
@@ -599,7 +672,8 @@
           "clips": [
             {
               "nombre": "C2423.MP4",
-              "ruta": "F:/Video Spa/Proxies/C2423.MP4"
+              "ruta": "F:/Video Spa/C2423.MP4",
+              "proxy": "F:/Video Spa/Proxies/C2423.MP4"
             }
           ]
         },
@@ -608,7 +682,8 @@
           "clips": [
             {
               "nombre": "C2417.MP4",
-              "ruta": "F:/Video Spa/Proxies/C2417.MP4"
+              "ruta": "F:/Video Spa/C2417.MP4",
+              "proxy": "F:/Video Spa/Proxies/C2417.MP4"
             }
           ]
         },
@@ -617,7 +692,8 @@
           "clips": [
             {
               "nombre": "C2429.MP4",
-              "ruta": "F:/Video Spa/Proxies/C2429.MP4"
+              "ruta": "F:/Video Spa/C2429.MP4",
+              "proxy": "F:/Video Spa/Proxies/C2429.MP4"
             }
           ]
         }
@@ -631,7 +707,8 @@
           "clips": [
             {
               "nombre": "C2398.MP4",
-              "ruta": "F:/Video Spa/Proxies/C2398.MP4"
+              "ruta": "F:/Video Spa/C2398.MP4",
+              "proxy": "F:/Video Spa/Proxies/C2398.MP4"
             }
           ]
         },
@@ -640,11 +717,13 @@
           "clips": [
             {
               "nombre": "C2420.MP4",
-              "ruta": "F:/Video Spa/Proxies/C2420.MP4"
+              "ruta": "F:/Video Spa/C2420.MP4",
+              "proxy": "F:/Video Spa/Proxies/C2420.MP4"
             },
             {
               "nombre": "C2415.MP4",
-              "ruta": "F:/Video Spa/Proxies/C2415.MP4"
+              "ruta": "F:/Video Spa/C2415.MP4",
+              "proxy": "F:/Video Spa/Proxies/C2415.MP4"
             }
           ]
         },
@@ -653,7 +732,8 @@
           "clips": [
             {
               "nombre": "C2424.MP4",
-              "ruta": "F:/Video Spa/Proxies/C2424.MP4"
+              "ruta": "F:/Video Spa/C2424.MP4",
+              "proxy": "F:/Video Spa/Proxies/C2424.MP4"
             }
           ]
         },
@@ -662,7 +742,8 @@
           "clips": [
             {
               "nombre": "C2426.MP4",
-              "ruta": "F:/Video Spa/Proxies/C2426.MP4"
+              "ruta": "F:/Video Spa/C2426.MP4",
+              "proxy": "F:/Video Spa/Proxies/C2426.MP4"
             }
           ]
         },
@@ -671,7 +752,8 @@
           "clips": [
             {
               "nombre": "C2427.MP4",
-              "ruta": "F:/Video Spa/Proxies/C2427.MP4"
+              "ruta": "F:/Video Spa/C2427.MP4",
+              "proxy": "F:/Video Spa/Proxies/C2427.MP4"
             }
           ]
         },
@@ -680,7 +762,8 @@
           "clips": [
             {
               "nombre": "C2430.MP4",
-              "ruta": "F:/Video Spa/Proxies/C2430.MP4"
+              "ruta": "F:/Video Spa/C2430.MP4",
+              "proxy": "F:/Video Spa/Proxies/C2430.MP4"
             }
           ]
         },
@@ -689,19 +772,23 @@
           "clips": [
             {
               "nombre": "C2377.MP4",
-              "ruta": "F:/Video Spa/Proxies/C2377.MP4"
+              "ruta": "F:/Video Spa/C2377.MP4",
+              "proxy": "F:/Video Spa/Proxies/C2377.MP4"
             },
             {
               "nombre": "C2375.MP4",
-              "ruta": "F:/Video Spa/Proxies/C2375.MP4"
+              "ruta": "F:/Video Spa/C2375.MP4",
+              "proxy": "F:/Video Spa/Proxies/C2375.MP4"
             },
             {
               "nombre": "C2376.MP4",
-              "ruta": "F:/Video Spa/Proxies/C2376.MP4"
+              "ruta": "F:/Video Spa/C2376.MP4",
+              "proxy": "F:/Video Spa/Proxies/C2376.MP4"
             },
             {
               "nombre": "C2378.MP4",
-              "ruta": "F:/Video Spa/Proxies/C2378.MP4"
+              "ruta": "F:/Video Spa/C2378.MP4",
+              "proxy": "F:/Video Spa/Proxies/C2378.MP4"
             }
           ]
         },
@@ -710,7 +797,8 @@
           "clips": [
             {
               "nombre": "C2391.MP4",
-              "ruta": "F:/Video Spa/Proxies/C2391.MP4"
+              "ruta": "F:/Video Spa/C2391.MP4",
+              "proxy": "F:/Video Spa/Proxies/C2391.MP4"
             }
           ]
         },
@@ -719,7 +807,8 @@
           "clips": [
             {
               "nombre": "C2396.MP4",
-              "ruta": "F:/Video Spa/Proxies/C2396.MP4"
+              "ruta": "F:/Video Spa/C2396.MP4",
+              "proxy": "F:/Video Spa/Proxies/C2396.MP4"
             }
           ]
         },
@@ -728,23 +817,28 @@
           "clips": [
             {
               "nombre": "C2402.MP4",
-              "ruta": "F:/Video Spa/Proxies/C2402.MP4"
+              "ruta": "F:/Video Spa/C2402.MP4",
+              "proxy": "F:/Video Spa/Proxies/C2402.MP4"
             },
             {
               "nombre": "C2399.MP4",
-              "ruta": "F:/Video Spa/Proxies/C2399.MP4"
+              "ruta": "F:/Video Spa/C2399.MP4",
+              "proxy": "F:/Video Spa/Proxies/C2399.MP4"
             },
             {
               "nombre": "C2400.MP4",
-              "ruta": "F:/Video Spa/Proxies/C2400.MP4"
+              "ruta": "F:/Video Spa/C2400.MP4",
+              "proxy": "F:/Video Spa/Proxies/C2400.MP4"
             },
             {
               "nombre": "C2401.MP4",
-              "ruta": "F:/Video Spa/Proxies/C2401.MP4"
+              "ruta": "F:/Video Spa/C2401.MP4",
+              "proxy": "F:/Video Spa/Proxies/C2401.MP4"
             },
             {
               "nombre": "C2403.MP4",
-              "ruta": "F:/Video Spa/Proxies/C2403.MP4"
+              "ruta": "F:/Video Spa/C2403.MP4",
+              "proxy": "F:/Video Spa/Proxies/C2403.MP4"
             }
           ]
         },
@@ -753,7 +847,8 @@
           "clips": [
             {
               "nombre": "C2404.MP4",
-              "ruta": "F:/Video Spa/Proxies/C2404.MP4"
+              "ruta": "F:/Video Spa/C2404.MP4",
+              "proxy": "F:/Video Spa/Proxies/C2404.MP4"
             }
           ]
         },
@@ -762,7 +857,8 @@
           "clips": [
             {
               "nombre": "C2405.MP4",
-              "ruta": "F:/Video Spa/Proxies/C2405.MP4"
+              "ruta": "F:/Video Spa/C2405.MP4",
+              "proxy": "F:/Video Spa/Proxies/C2405.MP4"
             }
           ]
         },
@@ -771,7 +867,8 @@
           "clips": [
             {
               "nombre": "C2408.MP4",
-              "ruta": "F:/Video Spa/Proxies/C2408.MP4"
+              "ruta": "F:/Video Spa/C2408.MP4",
+              "proxy": "F:/Video Spa/Proxies/C2408.MP4"
             }
           ]
         },
@@ -780,7 +877,8 @@
           "clips": [
             {
               "nombre": "C2418.MP4",
-              "ruta": "F:/Video Spa/Proxies/C2418.MP4"
+              "ruta": "F:/Video Spa/C2418.MP4",
+              "proxy": "F:/Video Spa/Proxies/C2418.MP4"
             }
           ]
         },
@@ -789,7 +887,8 @@
           "clips": [
             {
               "nombre": "C2419.MP4",
-              "ruta": "F:/Video Spa/Proxies/C2419.MP4"
+              "ruta": "F:/Video Spa/C2419.MP4",
+              "proxy": "F:/Video Spa/Proxies/C2419.MP4"
             }
           ]
         },
@@ -798,7 +897,8 @@
           "clips": [
             {
               "nombre": "C2425.MP4",
-              "ruta": "F:/Video Spa/Proxies/C2425.MP4"
+              "ruta": "F:/Video Spa/C2425.MP4",
+              "proxy": "F:/Video Spa/Proxies/C2425.MP4"
             }
           ]
         },
@@ -807,7 +907,8 @@
           "clips": [
             {
               "nombre": "C2428.MP4",
-              "ruta": "F:/Video Spa/Proxies/C2428.MP4"
+              "ruta": "F:/Video Spa/C2428.MP4",
+              "proxy": "F:/Video Spa/Proxies/C2428.MP4"
             }
           ]
         },
@@ -816,7 +917,8 @@
           "clips": [
             {
               "nombre": "C2431.MP4",
-              "ruta": "F:/Video Spa/Proxies/C2431.MP4"
+              "ruta": "F:/Video Spa/C2431.MP4",
+              "proxy": "F:/Video Spa/Proxies/C2431.MP4"
             }
           ]
         }
@@ -830,7 +932,8 @@
           "clips": [
             {
               "nombre": "C2407.MP4",
-              "ruta": "F:/Video Spa/Proxies/C2407.MP4"
+              "ruta": "F:/Video Spa/C2407.MP4",
+              "proxy": "F:/Video Spa/Proxies/C2407.MP4"
             }
           ]
         },
@@ -839,7 +942,8 @@
           "clips": [
             {
               "nombre": "C2409.MP4",
-              "ruta": "F:/Video Spa/Proxies/C2409.MP4"
+              "ruta": "F:/Video Spa/C2409.MP4",
+              "proxy": "F:/Video Spa/Proxies/C2409.MP4"
             }
           ]
         },
@@ -848,7 +952,8 @@
           "clips": [
             {
               "nombre": "C2406.MP4",
-              "ruta": "F:/Video Spa/Proxies/C2406.MP4"
+              "ruta": "F:/Video Spa/C2406.MP4",
+              "proxy": "F:/Video Spa/Proxies/C2406.MP4"
             }
           ]
         }
@@ -862,11 +967,13 @@
           "clips": [
             {
               "nombre": "C2434.MP4",
-              "ruta": "F:/Video Spa/Proxies/C2434.MP4"
+              "ruta": "F:/Video Spa/C2434.MP4",
+              "proxy": "F:/Video Spa/Proxies/C2434.MP4"
             },
             {
               "nombre": "C2433.MP4",
-              "ruta": "F:/Video Spa/Proxies/C2433.MP4"
+              "ruta": "F:/Video Spa/C2433.MP4",
+              "proxy": "F:/Video Spa/Proxies/C2433.MP4"
             }
           ]
         },
@@ -875,7 +982,8 @@
           "clips": [
             {
               "nombre": "C2432.MP4",
-              "ruta": "F:/Video Spa/Proxies/C2432.MP4"
+              "ruta": "F:/Video Spa/C2432.MP4",
+              "proxy": "F:/Video Spa/Proxies/C2432.MP4"
             }
           ]
         }
@@ -889,7 +997,8 @@
           "clips": [
             {
               "nombre": "C2345.MP4",
-              "ruta": "F:/Video Spa/Proxies/C2345.MP4"
+              "ruta": "F:/Video Spa/C2345.MP4",
+              "proxy": "F:/Video Spa/Proxies/C2345.MP4"
             }
           ]
         },
@@ -898,7 +1007,8 @@
           "clips": [
             {
               "nombre": "C2367.MP4",
-              "ruta": "F:/Video Spa/Proxies/C2367.MP4"
+              "ruta": "F:/Video Spa/C2367.MP4",
+              "proxy": "F:/Video Spa/Proxies/C2367.MP4"
             }
           ]
         }
@@ -951,20 +1061,37 @@
         if (new File(C.marker).exists) { $.writeln("Este paquete ya se importo: " + C.marker); return; }
         var xmlFile = new File(C.xml);
         if (!xmlFile.exists) { throw new Error("No encuentro el XML: " + C.xml); }
-        // conservar lo que hubiera abierto y crear el proyecto nuevo
+        // Se trabaja DENTRO del proyecto base (que es el archivo final, copia de la plantilla).
+        // Solo se cierra un proyecto ANTERIOR DE ESTE PROGRAMA (misma carpeta), guardándolo antes;
+        // cualquier proyecto de fuera se deja intacto y el script se detiene.
+        paso = "comprobar el proyecto abierto";
         var actual = (app.project && app.project.path) ? norm(app.project.path) : "";
-        if (actual && actual !== norm(C.project) && actual.indexOf(norm(C.carpeta)) !== 0) {
-            throw new Error("Hay otro proyecto abierto en Premiere (" + app.project.path + "). No lo cierro: guardalo y cierralo tu, y vuelve a ejecutar.");
-        }
         if (actual && actual !== norm(C.project)) {
-            paso = "guardar y cerrar el proyecto base";
+            if (actual.indexOf(norm(C.carpeta)) !== 0) {
+                throw new Error("Esta abierto otro proyecto (" + app.project.path + "). No lo toco: cierralo tu y vuelve a ejecutar.");
+            }
+            paso = "cambiar del proyecto anterior al del spot";
             try { app.project.save(); } catch (e0) {}
-            try { app.project.closeDocument(0, 0); } catch (e1) {}
+            app.project.closeDocument(0, 0);
             log("proyecto anterior guardado y cerrado");
+            app.openDocument(new File(C.project).fsName);
+            log("proyecto del spot abierto");
+            actual = (app.project && app.project.path) ? norm(app.project.path) : "";
         }
-        paso = "crear el proyecto nuevo";
-        if (!app.project || norm(app.project.path) !== norm(C.project)) { app.newProject(new File(C.project).fsName); }
-        log("proyecto nuevo creado: " + new File(C.project).fsName);
+        if (actual === norm(C.project) && app.project.sequences.numSequences > 0) {
+            // el archivo del disco ya es la plantilla en blanco nueva: lo que hay en memoria es de una ejecucion anterior
+            // (la copia guardada de esa version quedo como "(anterior ...).prproj")
+            paso = "recargar el proyecto en blanco";
+            app.project.closeDocument(0, 0);
+            app.openDocument(new File(C.project).fsName);
+            log("proyecto de una ejecucion anterior descartado; plantilla en blanco recargada");
+            actual = (app.project && app.project.path) ? norm(app.project.path) : "";
+        }
+        if (!actual) { throw new Error("Premiere no tiene ningun proyecto abierto. Abre: " + C.project); }
+        if (actual !== norm(C.project)) {
+            throw new Error("No se pudo abrir el proyecto del spot: " + C.project + " (abierto: " + app.project.path + ")");
+        }
+        log("proyecto del spot abierto: " + app.project.path);
         paso = "importar el XML";
 
         var before = app.project.sequences.numSequences;
@@ -1002,12 +1129,40 @@
             }
         }
         log("carpetas: " + bins + ", clips movidos " + moved + ", importados " + imported + " de " + total);
+
+        // ---- proxies: se adjuntan a los originales (se edita ligero y se exporta con la calidad completa) ----
+        paso = "adjuntar los proxies";
+        var adjuntos = 0, fallos = 0, quiereProxy = 0;
+        for (a = 0; a < C.actos.length; a++) {
+            for (g = 0; g < C.actos[a].grupos.length; g++) {
+                for (k = 0; k < C.actos[a].grupos[g].clips.length; k++) {
+                    c = C.actos[a].grupos[g].clips[k];
+                    if (!c.proxy) { continue; }
+                    quiereProxy++;
+                    var itp = findItem(c.ruta);
+                    if (!itp) { fallos++; continue; }
+                    // attachProxy solo acepta rutas de Windows (con barras invertidas): con "/" devuelve false sin avisar.
+                    // Por eso se comprueba hasProxy() después, no solo que no haya excepción.
+                    var objetivo = String(c.proxy).split("/").join(String.fromCharCode(92));
+                    var existente = "", yaEsta = false, hay = false;
+                    try { existente = norm(itp.getProxyPath()); yaEsta = itp.hasProxy(); } catch (e3) {}
+                    if (!(yaEsta && existente === norm(c.proxy))) {
+                        try { itp.attachProxy(objetivo, 0); } catch (eAtt) {}
+                    }
+                    try { hay = itp.hasProxy(); } catch (e4) {}
+                    if (hay) { adjuntos++; } else { fallos++; }
+                }
+            }
+        }
+        log("proxies adjuntos: " + adjuntos + " de " + quiereProxy + " (fallos: " + fallos + ")");
+
         paso = "guardar";
         try { app.project.openSequence(seq.sequenceID); } catch (e2) {}
         app.project.save();
         log("guardado");
         writeFile(C.marker, "OK\n" + (new Date()).toString() + "\nsecuencia: " + seq.name +
                   "\ncarpetas: " + bins + "\nclips: " + total + " (movidos " + moved + ", importados " + imported + ")" +
+                  "\nproxies adjuntos: " + adjuntos + " de " + quiereProxy + " (fallos " + fallos + ")" +
                   "\nproyecto: " + C.project + "\n");
     } catch (err) {
         log("ERROR en el paso '" + paso + "': " + String(err));
