@@ -59,7 +59,10 @@ VS Code, crea el proyecto, importa `salida/spot.xml` (la secuencia) y **ordena e
 una carpeta por etapa de la historia y, dentro, una subcarpeta por cada plano con tomas repetidas
 (los clips usados se mueven; los demás se importan). Deja un marcador `.importado.ok.txt`.
 `--preparar` solo genera los archivos (`ABRIR_PREMIERE_2022.bat`, el JSX y el workspace de VS Code)
-y lo lanzas tú.
+y lo lanzas tú; `CREAR_PROYECTO_PREMIERE.bat` lo ejecuta todo con doble clic.
+
+**Seguridad:** nunca cierra un proyecto ajeno. Si Premiere tiene abierto un proyecto que no es el suyo,
+se detiene sin enviar ninguna tecla; el JSX comprueba lo mismo por su cuenta.
 
 El XML (`export_premiere.py`) deja los clips pegados, sin solapes (Premiere no admite clips solapados
 en una pista) y añade fundidos centrados en el corte solo donde ambos clips tienen material de sobra.

@@ -6,13 +6,14 @@
   "marker": "C:/Claude/spa-montaje/salida/premiere/Spot Spa - organizado.importado.ok.txt",
   "error": "C:/Claude/spa-montaje/salida/premiere/Spot Spa - organizado.importado.error.txt",
   "log": "C:/Claude/spa-montaje/salida/premiere/Spot Spa - organizado.log.txt",
+  "carpeta": "C:/Claude/spa-montaje/salida/premiere",
   "sequence": "Spot Spa",
   "actos": [
     {
-      "nombre": "01 · La chica llega",
+      "nombre": "01 \u00b7 La chica llega",
       "grupos": [
         {
-          "nombre": "T015 · C2346 + C2341",
+          "nombre": "T015 \u00b7 C2346 + C2341",
           "clips": [
             {
               "nombre": "C2346.MP4",
@@ -27,10 +28,10 @@
       ]
     },
     {
-      "nombre": "02 · El ambiente",
+      "nombre": "02 \u00b7 El ambiente",
       "grupos": [
         {
-          "nombre": "T007 · C2332",
+          "nombre": "T007 \u00b7 C2332",
           "clips": [
             {
               "nombre": "C2332.MP4",
@@ -39,7 +40,7 @@
           ]
         },
         {
-          "nombre": "T001 · C2325 + C2324",
+          "nombre": "T001 \u00b7 C2325 + C2324",
           "clips": [
             {
               "nombre": "C2325.MP4",
@@ -52,7 +53,7 @@
           ]
         },
         {
-          "nombre": "T002 · C2326",
+          "nombre": "T002 \u00b7 C2326",
           "clips": [
             {
               "nombre": "C2326.MP4",
@@ -61,7 +62,7 @@
           ]
         },
         {
-          "nombre": "T003 · C2327",
+          "nombre": "T003 \u00b7 C2327",
           "clips": [
             {
               "nombre": "C2327.MP4",
@@ -70,7 +71,7 @@
           ]
         },
         {
-          "nombre": "T004 · C2328 + C2329",
+          "nombre": "T004 \u00b7 C2328 + C2329",
           "clips": [
             {
               "nombre": "C2328.MP4",
@@ -83,7 +84,7 @@
           ]
         },
         {
-          "nombre": "T006 · C2331",
+          "nombre": "T006 \u00b7 C2331",
           "clips": [
             {
               "nombre": "C2331.MP4",
@@ -92,7 +93,7 @@
           ]
         },
         {
-          "nombre": "T008 · C2333",
+          "nombre": "T008 \u00b7 C2333",
           "clips": [
             {
               "nombre": "C2333.MP4",
@@ -101,7 +102,7 @@
           ]
         },
         {
-          "nombre": "T009 · C2334",
+          "nombre": "T009 \u00b7 C2334",
           "clips": [
             {
               "nombre": "C2334.MP4",
@@ -110,7 +111,7 @@
           ]
         },
         {
-          "nombre": "T010 · C2335",
+          "nombre": "T010 \u00b7 C2335",
           "clips": [
             {
               "nombre": "C2335.MP4",
@@ -119,7 +120,7 @@
           ]
         },
         {
-          "nombre": "T011 · C2337 + C2336",
+          "nombre": "T011 \u00b7 C2337 + C2336",
           "clips": [
             {
               "nombre": "C2337.MP4",
@@ -132,7 +133,7 @@
           ]
         },
         {
-          "nombre": "T043 · C2384",
+          "nombre": "T043 \u00b7 C2384",
           "clips": [
             {
               "nombre": "C2384.MP4",
@@ -143,10 +144,10 @@
       ]
     },
     {
-      "nombre": "03 · Frente al espejo",
+      "nombre": "03 \u00b7 Frente al espejo",
       "grupos": [
         {
-          "nombre": "T013 · C2339 + C2343 + C2344",
+          "nombre": "T013 \u00b7 C2339 + C2343 + C2344",
           "clips": [
             {
               "nombre": "C2339.MP4",
@@ -163,7 +164,7 @@
           ]
         },
         {
-          "nombre": "T016 · C2342",
+          "nombre": "T016 \u00b7 C2342",
           "clips": [
             {
               "nombre": "C2342.MP4",
@@ -172,7 +173,7 @@
           ]
         },
         {
-          "nombre": "T012 · C2338",
+          "nombre": "T012 \u00b7 C2338",
           "clips": [
             {
               "nombre": "C2338.MP4",
@@ -181,7 +182,7 @@
           ]
         },
         {
-          "nombre": "T014 · C2340",
+          "nombre": "T014 \u00b7 C2340",
           "clips": [
             {
               "nombre": "C2340.MP4",
@@ -192,10 +193,10 @@
       ]
     },
     {
-      "nombre": "04 · Camina por el pasadizo",
+      "nombre": "04 \u00b7 Camina por el pasadizo",
       "grupos": [
         {
-          "nombre": "T035 · C2371",
+          "nombre": "T035 \u00b7 C2371",
           "clips": [
             {
               "nombre": "C2371.MP4",
@@ -204,7 +205,7 @@
           ]
         },
         {
-          "nombre": "T032 · C2368",
+          "nombre": "T032 \u00b7 C2368",
           "clips": [
             {
               "nombre": "C2368.MP4",
@@ -213,7 +214,7 @@
           ]
         },
         {
-          "nombre": "T033 · C2369",
+          "nombre": "T033 \u00b7 C2369",
           "clips": [
             {
               "nombre": "C2369.MP4",
@@ -222,7 +223,7 @@
           ]
         },
         {
-          "nombre": "T034 · C2370",
+          "nombre": "T034 \u00b7 C2370",
           "clips": [
             {
               "nombre": "C2370.MP4",
@@ -233,10 +234,10 @@
       ]
     },
     {
-      "nombre": "05 · Sube a la camilla",
+      "nombre": "05 \u00b7 Sube a la camilla",
       "grupos": [
         {
-          "nombre": "T038 · C2374",
+          "nombre": "T038 \u00b7 C2374",
           "clips": [
             {
               "nombre": "C2374.MP4",
@@ -245,7 +246,7 @@
           ]
         },
         {
-          "nombre": "T036 · C2372",
+          "nombre": "T036 \u00b7 C2372",
           "clips": [
             {
               "nombre": "C2372.MP4",
@@ -254,7 +255,7 @@
           ]
         },
         {
-          "nombre": "T037 · C2373",
+          "nombre": "T037 \u00b7 C2373",
           "clips": [
             {
               "nombre": "C2373.MP4",
@@ -263,7 +264,7 @@
           ]
         },
         {
-          "nombre": "T040 · C2380 + C2379",
+          "nombre": "T040 \u00b7 C2380 + C2379",
           "clips": [
             {
               "nombre": "C2380.MP4",
@@ -276,7 +277,7 @@
           ]
         },
         {
-          "nombre": "T041 · C2382 + C2381",
+          "nombre": "T041 \u00b7 C2382 + C2381",
           "clips": [
             {
               "nombre": "C2382.MP4",
@@ -289,7 +290,7 @@
           ]
         },
         {
-          "nombre": "T048 · C2393 + C2394",
+          "nombre": "T048 \u00b7 C2393 + C2394",
           "clips": [
             {
               "nombre": "C2393.MP4",
@@ -302,7 +303,7 @@
           ]
         },
         {
-          "nombre": "T049 · C2395",
+          "nombre": "T049 \u00b7 C2395",
           "clips": [
             {
               "nombre": "C2395.MP4",
@@ -311,7 +312,7 @@
           ]
         },
         {
-          "nombre": "T051 · C2397",
+          "nombre": "T051 \u00b7 C2397",
           "clips": [
             {
               "nombre": "C2397.MP4",
@@ -320,7 +321,7 @@
           ]
         },
         {
-          "nombre": "T060 · C2413 + C2410 + C2411 + C2412",
+          "nombre": "T060 \u00b7 C2413 + C2410 + C2411 + C2412",
           "clips": [
             {
               "nombre": "C2413.MP4",
@@ -343,10 +344,10 @@
       ]
     },
     {
-      "nombre": "06 · Piedras calientes",
+      "nombre": "06 \u00b7 Piedras calientes",
       "grupos": [
         {
-          "nombre": "T026 · C2361",
+          "nombre": "T026 \u00b7 C2361",
           "clips": [
             {
               "nombre": "C2361.MP4",
@@ -355,7 +356,7 @@
           ]
         },
         {
-          "nombre": "T042 · C2383",
+          "nombre": "T042 \u00b7 C2383",
           "clips": [
             {
               "nombre": "C2383.MP4",
@@ -364,7 +365,7 @@
           ]
         },
         {
-          "nombre": "T005 · C2330",
+          "nombre": "T005 \u00b7 C2330",
           "clips": [
             {
               "nombre": "C2330.MP4",
@@ -373,7 +374,7 @@
           ]
         },
         {
-          "nombre": "T018 · C2347",
+          "nombre": "T018 \u00b7 C2347",
           "clips": [
             {
               "nombre": "C2347.MP4",
@@ -382,7 +383,7 @@
           ]
         },
         {
-          "nombre": "T019 · C2350 + C2348 + C2349 + C2351",
+          "nombre": "T019 \u00b7 C2350 + C2348 + C2349 + C2351",
           "clips": [
             {
               "nombre": "C2350.MP4",
@@ -403,7 +404,7 @@
           ]
         },
         {
-          "nombre": "T020 · C2352",
+          "nombre": "T020 \u00b7 C2352",
           "clips": [
             {
               "nombre": "C2352.MP4",
@@ -412,7 +413,7 @@
           ]
         },
         {
-          "nombre": "T021 · C2353",
+          "nombre": "T021 \u00b7 C2353",
           "clips": [
             {
               "nombre": "C2353.MP4",
@@ -421,7 +422,7 @@
           ]
         },
         {
-          "nombre": "T022 · C2354",
+          "nombre": "T022 \u00b7 C2354",
           "clips": [
             {
               "nombre": "C2354.MP4",
@@ -430,7 +431,7 @@
           ]
         },
         {
-          "nombre": "T023 · C2355",
+          "nombre": "T023 \u00b7 C2355",
           "clips": [
             {
               "nombre": "C2355.MP4",
@@ -439,7 +440,7 @@
           ]
         },
         {
-          "nombre": "T024 · C2356 + C2357",
+          "nombre": "T024 \u00b7 C2356 + C2357",
           "clips": [
             {
               "nombre": "C2356.MP4",
@@ -452,7 +453,7 @@
           ]
         },
         {
-          "nombre": "T025 · C2359 + C2358",
+          "nombre": "T025 \u00b7 C2359 + C2358",
           "clips": [
             {
               "nombre": "C2359.MP4",
@@ -465,7 +466,7 @@
           ]
         },
         {
-          "nombre": "T027 · C2362",
+          "nombre": "T027 \u00b7 C2362",
           "clips": [
             {
               "nombre": "C2362.MP4",
@@ -474,7 +475,7 @@
           ]
         },
         {
-          "nombre": "T028 · C2363",
+          "nombre": "T028 \u00b7 C2363",
           "clips": [
             {
               "nombre": "C2363.MP4",
@@ -483,7 +484,7 @@
           ]
         },
         {
-          "nombre": "T029 · C2364",
+          "nombre": "T029 \u00b7 C2364",
           "clips": [
             {
               "nombre": "C2364.MP4",
@@ -492,7 +493,7 @@
           ]
         },
         {
-          "nombre": "T030 · C2366 + C2365",
+          "nombre": "T030 \u00b7 C2366 + C2365",
           "clips": [
             {
               "nombre": "C2366.MP4",
@@ -507,10 +508,10 @@
       ]
     },
     {
-      "nombre": "07 · Vapor",
+      "nombre": "07 \u00b7 Vapor",
       "grupos": [
         {
-          "nombre": "T046 · C2392 + C2390",
+          "nombre": "T046 \u00b7 C2392 + C2390",
           "clips": [
             {
               "nombre": "C2392.MP4",
@@ -523,7 +524,7 @@
           ]
         },
         {
-          "nombre": "T061 · C2414",
+          "nombre": "T061 \u00b7 C2414",
           "clips": [
             {
               "nombre": "C2414.MP4",
@@ -532,7 +533,7 @@
           ]
         },
         {
-          "nombre": "T067 · C2421",
+          "nombre": "T067 \u00b7 C2421",
           "clips": [
             {
               "nombre": "C2421.MP4",
@@ -541,7 +542,7 @@
           ]
         },
         {
-          "nombre": "T068 · C2422",
+          "nombre": "T068 \u00b7 C2422",
           "clips": [
             {
               "nombre": "C2422.MP4",
@@ -550,7 +551,7 @@
           ]
         },
         {
-          "nombre": "T045 · C2389",
+          "nombre": "T045 \u00b7 C2389",
           "clips": [
             {
               "nombre": "C2389.MP4",
@@ -561,10 +562,10 @@
       ]
     },
     {
-      "nombre": "08 · Mascarilla",
+      "nombre": "08 \u00b7 Mascarilla",
       "grupos": [
         {
-          "nombre": "T044 · C2385 + C2386 + C2387 + C2388",
+          "nombre": "T044 \u00b7 C2385 + C2386 + C2387 + C2388",
           "clips": [
             {
               "nombre": "C2385.MP4",
@@ -585,7 +586,7 @@
           ]
         },
         {
-          "nombre": "T063 · C2416",
+          "nombre": "T063 \u00b7 C2416",
           "clips": [
             {
               "nombre": "C2416.MP4",
@@ -594,7 +595,7 @@
           ]
         },
         {
-          "nombre": "T069 · C2423",
+          "nombre": "T069 \u00b7 C2423",
           "clips": [
             {
               "nombre": "C2423.MP4",
@@ -603,7 +604,7 @@
           ]
         },
         {
-          "nombre": "T064 · C2417",
+          "nombre": "T064 \u00b7 C2417",
           "clips": [
             {
               "nombre": "C2417.MP4",
@@ -612,7 +613,7 @@
           ]
         },
         {
-          "nombre": "T075 · C2429",
+          "nombre": "T075 \u00b7 C2429",
           "clips": [
             {
               "nombre": "C2429.MP4",
@@ -623,10 +624,10 @@
       ]
     },
     {
-      "nombre": "09 · Cremas y masaje facial",
+      "nombre": "09 \u00b7 Cremas y masaje facial",
       "grupos": [
         {
-          "nombre": "T052 · C2398",
+          "nombre": "T052 \u00b7 C2398",
           "clips": [
             {
               "nombre": "C2398.MP4",
@@ -635,7 +636,7 @@
           ]
         },
         {
-          "nombre": "T062 · C2420 + C2415",
+          "nombre": "T062 \u00b7 C2420 + C2415",
           "clips": [
             {
               "nombre": "C2420.MP4",
@@ -648,7 +649,7 @@
           ]
         },
         {
-          "nombre": "T070 · C2424",
+          "nombre": "T070 \u00b7 C2424",
           "clips": [
             {
               "nombre": "C2424.MP4",
@@ -657,7 +658,7 @@
           ]
         },
         {
-          "nombre": "T072 · C2426",
+          "nombre": "T072 \u00b7 C2426",
           "clips": [
             {
               "nombre": "C2426.MP4",
@@ -666,7 +667,7 @@
           ]
         },
         {
-          "nombre": "T073 · C2427",
+          "nombre": "T073 \u00b7 C2427",
           "clips": [
             {
               "nombre": "C2427.MP4",
@@ -675,7 +676,7 @@
           ]
         },
         {
-          "nombre": "T076 · C2430",
+          "nombre": "T076 \u00b7 C2430",
           "clips": [
             {
               "nombre": "C2430.MP4",
@@ -684,7 +685,7 @@
           ]
         },
         {
-          "nombre": "T039 · C2377 + C2375 + C2376 + C2378",
+          "nombre": "T039 \u00b7 C2377 + C2375 + C2376 + C2378",
           "clips": [
             {
               "nombre": "C2377.MP4",
@@ -705,7 +706,7 @@
           ]
         },
         {
-          "nombre": "T047 · C2391",
+          "nombre": "T047 \u00b7 C2391",
           "clips": [
             {
               "nombre": "C2391.MP4",
@@ -714,7 +715,7 @@
           ]
         },
         {
-          "nombre": "T050 · C2396",
+          "nombre": "T050 \u00b7 C2396",
           "clips": [
             {
               "nombre": "C2396.MP4",
@@ -723,7 +724,7 @@
           ]
         },
         {
-          "nombre": "T053 · C2402 + C2399 + C2400 + C2401 + C2403",
+          "nombre": "T053 \u00b7 C2402 + C2399 + C2400 + C2401 + C2403",
           "clips": [
             {
               "nombre": "C2402.MP4",
@@ -748,7 +749,7 @@
           ]
         },
         {
-          "nombre": "T054 · C2404",
+          "nombre": "T054 \u00b7 C2404",
           "clips": [
             {
               "nombre": "C2404.MP4",
@@ -757,7 +758,7 @@
           ]
         },
         {
-          "nombre": "T055 · C2405",
+          "nombre": "T055 \u00b7 C2405",
           "clips": [
             {
               "nombre": "C2405.MP4",
@@ -766,7 +767,7 @@
           ]
         },
         {
-          "nombre": "T058 · C2408",
+          "nombre": "T058 \u00b7 C2408",
           "clips": [
             {
               "nombre": "C2408.MP4",
@@ -775,7 +776,7 @@
           ]
         },
         {
-          "nombre": "T065 · C2418",
+          "nombre": "T065 \u00b7 C2418",
           "clips": [
             {
               "nombre": "C2418.MP4",
@@ -784,7 +785,7 @@
           ]
         },
         {
-          "nombre": "T066 · C2419",
+          "nombre": "T066 \u00b7 C2419",
           "clips": [
             {
               "nombre": "C2419.MP4",
@@ -793,7 +794,7 @@
           ]
         },
         {
-          "nombre": "T071 · C2425",
+          "nombre": "T071 \u00b7 C2425",
           "clips": [
             {
               "nombre": "C2425.MP4",
@@ -802,7 +803,7 @@
           ]
         },
         {
-          "nombre": "T074 · C2428",
+          "nombre": "T074 \u00b7 C2428",
           "clips": [
             {
               "nombre": "C2428.MP4",
@@ -811,7 +812,7 @@
           ]
         },
         {
-          "nombre": "T077 · C2431",
+          "nombre": "T077 \u00b7 C2431",
           "clips": [
             {
               "nombre": "C2431.MP4",
@@ -822,10 +823,10 @@
       ]
     },
     {
-      "nombre": "10 · Otros tratamientos",
+      "nombre": "10 \u00b7 Otros tratamientos",
       "grupos": [
         {
-          "nombre": "T057 · C2407",
+          "nombre": "T057 \u00b7 C2407",
           "clips": [
             {
               "nombre": "C2407.MP4",
@@ -834,7 +835,7 @@
           ]
         },
         {
-          "nombre": "T059 · C2409",
+          "nombre": "T059 \u00b7 C2409",
           "clips": [
             {
               "nombre": "C2409.MP4",
@@ -843,7 +844,7 @@
           ]
         },
         {
-          "nombre": "T056 · C2406",
+          "nombre": "T056 \u00b7 C2406",
           "clips": [
             {
               "nombre": "C2406.MP4",
@@ -854,10 +855,10 @@
       ]
     },
     {
-      "nombre": "11 · Cierre",
+      "nombre": "11 \u00b7 Cierre",
       "grupos": [
         {
-          "nombre": "T079 · C2434 + C2433",
+          "nombre": "T079 \u00b7 C2434 + C2433",
           "clips": [
             {
               "nombre": "C2434.MP4",
@@ -870,7 +871,7 @@
           ]
         },
         {
-          "nombre": "T078 · C2432",
+          "nombre": "T078 \u00b7 C2432",
           "clips": [
             {
               "nombre": "C2432.MP4",
@@ -881,10 +882,10 @@
       ]
     },
     {
-      "nombre": "99 · Descartados",
+      "nombre": "99 \u00b7 Descartados",
       "grupos": [
         {
-          "nombre": "T017 · C2345",
+          "nombre": "T017 \u00b7 C2345",
           "clips": [
             {
               "nombre": "C2345.MP4",
@@ -893,7 +894,7 @@
           ]
         },
         {
-          "nombre": "T031 · C2367",
+          "nombre": "T031 \u00b7 C2367",
           "clips": [
             {
               "nombre": "C2367.MP4",
@@ -909,6 +910,12 @@
         var f = new File(path);
         f.encoding = "UTF-8";
         if (f.open("w")) { f.write(text); f.close(); }
+    }
+    var paso = "inicio";
+    function log(msg) {
+        var f = new File(C.log);
+        f.encoding = "UTF-8";
+        if (f.open("a")) { f.writeln((new Date()).toTimeString().substr(0, 8) + "  " + msg); f.close(); }
     }
     function norm(p) { return String(p || "").replace(/\\/g, "/").toLowerCase(); }
     function ensureBin(parent, name) {
@@ -945,8 +952,12 @@
         var xmlFile = new File(C.xml);
         if (!xmlFile.exists) { throw new Error("No encuentro el XML: " + C.xml); }
         // conservar lo que hubiera abierto y crear el proyecto nuevo
-        if (app.project && app.project.path && norm(app.project.path) !== norm(C.project)) {
-            paso = "guardar y cerrar el proyecto abierto";
+        var actual = (app.project && app.project.path) ? norm(app.project.path) : "";
+        if (actual && actual !== norm(C.project) && actual.indexOf(norm(C.carpeta)) !== 0) {
+            throw new Error("Hay otro proyecto abierto en Premiere (" + app.project.path + "). No lo cierro: guardalo y cierralo tu, y vuelve a ejecutar.");
+        }
+        if (actual && actual !== norm(C.project)) {
+            paso = "guardar y cerrar el proyecto base";
             try { app.project.save(); } catch (e0) {}
             try { app.project.closeDocument(0, 0); } catch (e1) {}
             log("proyecto anterior guardado y cerrado");
@@ -999,7 +1010,8 @@
                   "\ncarpetas: " + bins + "\nclips: " + total + " (movidos " + moved + ", importados " + imported + ")" +
                   "\nproyecto: " + C.project + "\n");
     } catch (err) {
-        writeFile(C.error, String(err));
-        alert("No se pudo crear el proyecto del spot:\n" + String(err));
+        log("ERROR en el paso '" + paso + "': " + String(err));
+        writeFile(C.error, "paso: " + paso + "\n" + String(err));
+        // sin alert(): una ventana abierta bloquearia todos los scripts siguientes de Premiere
     }
 })();

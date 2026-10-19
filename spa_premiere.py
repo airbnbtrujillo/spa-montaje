@@ -61,6 +61,12 @@ JSX = r"""/* Crea el proyecto del spot: importa el XML y ordena el panel Proyect
         f.encoding = "UTF-8";
         if (f.open("w")) { f.write(text); f.close(); }
     }
+    var paso = "inicio";
+    function log(msg) {
+        var f = new File(C.log);
+        f.encoding = "UTF-8";
+        if (f.open("a")) { f.writeln((new Date()).toTimeString().substr(0, 8) + "  " + msg); f.close(); }
+    }
     function norm(p) { return String(p || "").replace(/\\/g, "/").toLowerCase(); }
     function ensureBin(parent, name) {
         var i, ch;
@@ -96,8 +102,12 @@ JSX = r"""/* Crea el proyecto del spot: importa el XML y ordena el panel Proyect
         var xmlFile = new File(C.xml);
         if (!xmlFile.exists) { throw new Error("No encuentro el XML: " + C.xml); }
         // conservar lo que hubiera abierto y crear el proyecto nuevo
-        if (app.project && app.project.path && norm(app.project.path) !== norm(C.project)) {
-            paso = "guardar y cerrar el proyecto abierto";
+        var actual = (app.project && app.project.path) ? norm(app.project.path) : "";
+        if (actual && actual !== norm(C.project) && actual.indexOf(norm(C.carpeta)) !== 0) {
+            throw new Error("Hay otro proyecto abierto en Premiere (" + app.project.path + "). No lo cierro: guardalo y cierralo tu, y vuelve a ejecutar.");
+        }
+        if (actual && actual !== norm(C.project)) {
+            paso = "guardar y cerrar el proyecto base";
             try { app.project.save(); } catch (e0) {}
             try { app.project.closeDocument(0, 0); } catch (e1) {}
             log("proyecto anterior guardado y cerrado");
@@ -150,8 +160,9 @@ JSX = r"""/* Crea el proyecto del spot: importa el XML y ordena el panel Proyect
                   "\ncarpetas: " + bins + "\nclips: " + total + " (movidos " + moved + ", importados " + imported + ")" +
                   "\nproyecto: " + C.project + "\n");
     } catch (err) {
-        writeFile(C.error, String(err));
-        alert("No se pudo crear el proyecto del spot:\n" + String(err));
+        log("ERROR en el paso '" + paso + "': " + String(err));
+        writeFile(C.error, "paso: " + paso + "\n" + String(err));
+        // sin alert(): una ventana abierta bloquearia todos los scripts siguientes de Premiere
     }
 })();
 """
@@ -206,9 +217,9 @@ def preparar(out: Path, xml: Path, decisiones: Path) -> dict:
         f.unlink(missing_ok=True)
 
     cfg = {"project": fwd(prproj), "xml": fwd(xml_dst), "marker": fwd(marker), "error": fwd(error),
-           "log": fwd(out / f"{PROYECTO}.log.txt"), "sequence": NOMBRE, "actos": estructura(decisiones)}
+           "log": fwd(out / f"{PROYECTO}.log.txt"), "carpeta": fwd(out), "sequence": NOMBRE, "actos": estructura(decisiones)}
     jsx = out / "crear_proyecto_organizado.jsx"
-    jsx.write_text(JSX.replace("__CONFIG__", json.dumps(cfg, indent=2, ensure_ascii=False)), encoding="utf-8")
+    jsx.write_text(JSX.replace("__CONFIG__", json.dumps(cfg, indent=2, ensure_ascii=True)), encoding="utf-8")
 
     bat = out / "ABRIR_PREMIERE_2022.bat"
     bat.write_text(f"""@echo off
@@ -271,6 +282,13 @@ def automatico(d: dict) -> bool:
         print("No encuentro VS Code: usa --preparar y sigue LEEME.txt.")
         return False
     ws_stem = d["ws"].stem
+    titulo = subprocess.run(["powershell", "-NoProfile", "-Command",
+                             "(Get-Process 'Adobe Premiere Pro' -ErrorAction SilentlyContinue | "
+                             "Select-Object -First 1).MainWindowTitle"], capture_output=True, text=True).stdout.strip()
+    if ".prproj" in titulo and str(d["prproj"].parent).lower() not in titulo.lower():
+        print("Premiere tiene abierto OTRO proyecto, que no toco:\n  " + titulo +
+              "\nGuárdalo y ciérralo (o cierra Premiere) y vuelve a ejecutar, o sigue LEEME.txt a mano.")
+        return False
     if not ventana_lista("Adobe Premiere Pro", NOMBRE):
         print("Abriendo Premiere 2022 (puede tardar varios minutos)...", flush=True)
         os.startfile(str(d["bat"]))
@@ -288,7 +306,7 @@ def automatico(d: dict) -> bool:
     time.sleep(6)  # el ExtendScript Debugger necesita un momento
     f5 = ("$ws = New-Object -ComObject WScript.Shell; "
           f"$p = Get-Process Code | Where-Object {{ $_.MainWindowTitle -like '*{ws_stem}*' }} | Select-Object -First 1; "
-          "if ($p -and $ws.AppActivate($p.Id)) { Start-Sleep -Milliseconds 900; $ws.SendKeys('{F5}'); 'ok' }")
+          "if ($p -and $ws.AppActivate($p.Id)) { Start-Sleep -Milliseconds 900; $ws.SendKeys('+{F5}'); Start-Sleep -Milliseconds 2500; $ws.SendKeys('{F5}'); 'ok' }")  # Mayús+F5 para una sesión previa, luego F5
     for intento in (1, 2):
         r = subprocess.run(["powershell", "-NoProfile", "-Command", f5], capture_output=True, text=True,
                            creationflags=getattr(subprocess, "CREATE_NO_WINDOW", 0))
