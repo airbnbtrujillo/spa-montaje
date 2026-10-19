@@ -1,0 +1,11 @@
+Crear el proyecto de Premiere del spot (mismo método que AutoSync)
+
+Automático:   python spa_premiere.py
+
+A mano:
+  1. Doble clic en ABRIR_PREMIERE_2022.bat (abre el proyecto base 'Spot Spa.prproj').
+  2. Abre Spot_Spa_importar_xml.code-workspace con VS Code y pulsa F5.
+  3. Cuando termine aparece 'Spot Spa.importado.ok.txt' y el proyecto ya tiene la secuencia.
+
+Si prefieres no usar VS Code: en Premiere, File > Import > spot.xml.
+El XML apunta a los PROXIES (F:\Video Spa\Proxies): para el final, clic derecho > Link Media.

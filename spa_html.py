@@ -105,7 +105,7 @@ code{background:var(--bg);border:1px solid var(--line);border-radius:5px;padding
   <section id="borrador" hidden>
     <video id="vb" controls preload="metadata"></video>
     <div class="txt"><h2>Cómo quedaría (borrador)</h2>
-      <p class="muted">Video armado con la <b>propuesta inicial</b>, con los cortes sobre los beats de la música (__MUSICA__). Está hecho con los proxies de baja resolución, solo para ver el ritmo y el orden. Si cambias algo aquí, descarga las decisiones y regenéralo con <code>spa_aplicar.py</code>.</p></div>
+      <p class="muted">Video armado con <b>__BORRADOR_TXT__</b>, con los cortes sobre los beats de la música (__MUSICA__). Está hecho con los proxies de baja resolución, solo para ver el ritmo y el orden. Si cambias algo aquí, descarga las decisiones y regenéralo con <code>spa_aplicar.py</code>.</p></div>
   </section>
   <div id="actos"></div>
 </main>
@@ -206,9 +206,23 @@ def main() -> None:
     ap.add_argument("--out", type=Path, default=HERE / "propuesta_montaje.html")
     ap.add_argument("--borrador", default="salida/borrador.mp4")
     ap.add_argument("--estatico", type=Path, help="carpeta de salida para versión sin vídeos (GitHub)")
+    ap.add_argument("--decisiones", type=Path, help="decisiones_spot_spa.json descargado del HTML: pasa a ser el estado inicial")
     args = ap.parse_args()
 
     P = json.loads(args.propuesta.read_text(encoding="utf-8"))
+    P["origen"] = "propuesta automática"
+    if args.decisiones:
+        dec = json.loads(args.decisiones.read_text(encoding="utf-8-sig"))["orden"]
+        pos = {d["plano"]: i for i, d in enumerate(dec)}
+        act_ids = [a["id"] for a in P["actos"]]
+        for p in P["planos"]:
+            d = dec[pos[p["id"]]] if p["id"] in pos else None
+            p["incluir"] = d is not None
+            if d:
+                p.update(toma=d["toma"], inicio_s=d["inicio_s"], beats=d["beats"], acto=d["acto"])
+        P["planos"].sort(key=lambda p: (act_ids.index(p["acto"]), 0 if p["id"] in pos else 1,
+                                       pos.get(p["id"], p["orden_rodaje"])))
+        P["origen"] = "decisiones del autor"
     P["musica"]["nombre"] = Path(P["musica"]["ruta"]).name.split("_Media_")[0].replace("YTDown.com_YouTube_", "")[:60]
     del P["musica"]["ruta"]  # no publicar rutas locales
     P["hash"] = hashlib.sha1(json.dumps([(p["id"], p["acto"], p["incluir"], p["toma"], p["inicio_s"], p["beats"])
@@ -245,6 +259,7 @@ def main() -> None:
     title = P["proyecto"]
     html = (TEMPLATE.replace("__TITULO__", title)
             .replace("__MUSICA__", P["musica"]["nombre"])
+            .replace("__BORRADOR_TXT__", "tus decisiones" if args.decisiones else "la propuesta inicial")
             .replace("__PAYLOAD__", json.dumps(P, ensure_ascii=False).replace("</", "<\\/")))
     out.write_text(html, encoding="utf-8")
     kb = out.stat().st_size / 1024

@@ -8,3 +8,8 @@ salida/spot.xml
 propuesta_montaje.html
 *.mp3
 *.wav
+salida/premiere/*.prproj
+salida/premiere/*.xml
+salida/premiere/*.importado*
+salida/decisiones_usuario.json
+salida/spot.xml

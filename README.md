@@ -51,8 +51,18 @@ del orden de rodaje. Revisado a ojo sobre este rodaje: ≥ 0.91 fueron tomas rep
 eran ángulos distintos. **No elige la mejor toma**: por defecto propone la de mejor nota y, a
 igualdad, la última; se cambia en el HTML.
 
-## Privacidad
+## Premiere
 
-El rodaje muestra a una persona real en tratamientos de spa. Los vídeos, la música y los fotogramas
-completos **no** se versionan (`.gitignore`). La versión estática (`docs/`) lleva miniaturas: no la
-publiques en un repositorio público sin permiso de la persona que aparece.
+`spa_premiere.py` crea el proyecto de Premiere con el mismo método que AutoSync Multicam: copia la
+plantilla `.prproj` en blanco de Premiere 2022, un JSX importa `salida/spot.xml` en el proyecto abierto,
+abre la secuencia y guarda (deja un marcador `.importado.ok.txt`). Se ejecuta con el ExtendScript
+Debugger de VS Code. `--preparar` solo genera los archivos (`ABRIR_PREMIERE_2022.bat`, el JSX y el
+workspace de VS Code) y lo lanzas tú.
+
+## Visor público
+
+`docs/` es la versión estática del visor (sin vídeos, solo miniaturas) y parte de las decisiones de
+`decisiones/decisiones_2026-10-19.json`. Las miniaturas muestran a una persona real durante un
+tratamiento de spa; se publican por decisión del autor del proyecto. Los vídeos, la música y los
+fotogramas completos **no** se versionan (`.gitignore`). Para retirar las imágenes: borrar `docs/img`
+o pasar el repositorio a privado.

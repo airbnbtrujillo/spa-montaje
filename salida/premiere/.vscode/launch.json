@@ -1,0 +1,14 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "extendscript-debug",
+      "request": "launch",
+      "name": "Importar XML del spot en Premiere",
+      "hostAppSpecifier": "premierepro-22.0",
+      "engineName": "NewWorld",
+      "script": "${workspaceFolder}/importar_xml_en_prproj_abierto.jsx",
+      "bringToFront": true
+    }
+  ]
+}
